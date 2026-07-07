@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#08090e">
+    <title>TechMan Assist — Interview Proxy, Mock Interviews, Job Support & Verification</title>
+    <meta name="description" content="Secure your dream tech job with TechMan Assist. We offer elite proxy interviewers, 1-on-1 mock sessions, background verification guidance, and hands-on job support.">
+    <meta name="keywords" content="interview proxy, mock interviews, job support, backend proxy, frontend proxy, devops proxy, background verification, tech jobs">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Announcement Banner -->
+    <div class="announcement-banner">
+        <div class="banner-container">
+            <div class="banner-left">
+                <span class="banner-badge">NEW</span>
+                <span class="banner-text">Join our WhatsApp Community for Daily Remote Job Openings & Tech Updates!</span>
+                <a href="https://chat.whatsapp.com/EUnxXypvR6tIfAVSEobufs" target="_blank" rel="noopener" class="banner-link">
+                    Join Now 
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+            </div>
+            <div class="banner-right">
+                <a href="https://wa.me/16418191430?text=Hi,%20I'm%20interested%20in%20your%20services.%20Please%20share%20more%20details." target="_blank" rel="noopener" class="banner-whatsapp-btn">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 4px;"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.97C16.59 2.016 14.11 1.008 11.48 1.008c-5.442 0-9.87 4.372-9.874 9.802-.001 1.77.464 3.5 1.349 5.022L1.93 22.025l6.347-1.656c1.554.848 3.197 1.285 4.845 1.285zm12.336-7.85c-.32-.16-1.89-.933-2.185-1.04-.294-.108-.508-.16-.721.16-.214.32-.828 1.04-.1.16s-.535-.246-.906-.324c-.267-.056-.475-.24-.627-.478-.146-.226-.148-.567.042-.907.037-.066.079-.133.125-.2.247-.36.4-.64.444-.805.043-.165.022-.307-.01-.387-.033-.08-.321-.773-.44-1.058-.116-.28-.236-.241-.321-.245-.083-.004-.178-.004-.273-.004-.096 0-.251.036-.383.18-.132.144-.504.493-.504 1.201 0 .708.515 1.393.587 1.488.072.096 1.014 1.55 2.457 2.172.343.148.611.237.82.303.345.11.66.094.908.057.277-.041.89-.364 1.016-.716.126-.352.126-.654.088-.717-.038-.063-.14-.1-.46-.26z"/></svg>
+                    WhatsApp Us
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#logo-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <defs>
+                            <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#4f46e5" />
+                                <stop offset="100%" stop-color="#06b6d4" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <span>TechMan<span>Assist</span></span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#services" class="nav-item">Services</a>
+                <a href="#team" class="nav-item">Team</a>
+                <a href="#setup" class="nav-item">Setup Guide</a>
+                <a href="#process" class="nav-item">Process</a>
+                <a href="#pricing" class="nav-item">Pricing</a>
+                <a href="#reviews" class="nav-item">Reviews</a>
+                <a href="#gallery" class="nav-item">Results</a>
+                <a href="#faq" class="nav-item">FAQ</a>
+                <a href="#contact" class="nav-item">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <div class="weather-widget" id="weather-widget" title="Local weather theme. Click to toggle themes.">
+                    <span class="weather-icon">⏳</span>
+                    <span id="weather-temp">Detecting...</span>
+                </div>
+                <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="ambient-glow glow-1"></div>
+            <div class="ambient-glow glow-2"></div>
+            <div class="hero-container">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span>No. 1 Trusted Interview Prep & Proxy Service</span>
+                </div>
+                <h1 class="hero-title">
+                    We Sit, You Get Hired. <br>
+                    <span class="gradient-text">Pass Your Interviews</span> on the First Try.
+                </h1>
+                <p class="hero-subtitle">
+                    Your ultimate shortcut to landing top-tier tech roles. We provide elite proxy interviewers, expert mock prep sessions, background verification guidance, and daily on-the-job support.
+                </p>
+                <div class="hero-ctas">
+                    <a href="#contact" class="btn btn-primary">Book Free Consultation</a>
+                    <a href="#services" class="btn btn-secondary">View Services</a>
+                </div>
+                
+                <!-- Quick Stats Grid -->
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-value">98%</div>
+                        <div class="stat-label">Success Rate</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">5000+</div>
+                        <div class="stat-label">Clients Served</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">50+</div>
+                        <div class="stat-label">Technologies</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">WHAT WE DO</span>
+                    <h2>Comprehensive Career Acceleration Services</h2>
+                    <p>Whether you need live proxy support, realistic interview mockups, background support, or daily on-the-job execution help, we have you covered.</p>
+                </div>
+
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <h3>Interview Proxy</h3>
+                        <p>Elite domain experts sit for your live interview. Features real-time prompting, secure remote desktop connection, and stealth setup for complete success.</p>
+                        <ul class="service-features">
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Remote setup & hardware config
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Domain experts matching your spec
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                100% confidential & untraceable
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        </div>
+                        <h3>Mock Interview</h3>
+                        <p>Evaluate your skills with standard 1-on-1 prep sessions conducted by senior engineers from FAANG/Fortune 500. Receive a comprehensive feedback report.</p>
+                        <ul class="service-features">
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Exact target-company environments
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Deep-dive diagnostic grading
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Code review & system design tips
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        </div>
+                        <h3>Background Verification</h3>
+                        <p>Complete consultation & strategies to align employment records, handle documentation inconsistencies, and clear corporate background checks seamlessly.</p>
+                        <ul class="service-features">
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Experience mapping checkups
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Reference & portal alignment
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Strategy for tricky gaps/roles
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                        </div>
+                        <h3>Job Support</h3>
+                        <p>Daily technical assistance to manage sprint tasks. We act as your safety net, helping with coding, architectural designs, troubleshooting, and deployments.</p>
+                        <ul class="service-features">
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Live debugging sessions
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Code block execution & testing
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Daily check-ins and screen share
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meet the Experts Section -->
+        <section id="team" class="team-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">ELITE TEAM</span>
+                    <h2>Meet Our Industry Experts</h2>
+                    <p>We work with senior developers, lead engineers, and architects from elite global tech brands. Filter by domain to view our roster.</p>
+                </div>
+
+                <!-- Tabs Navigation -->
+                <div class="team-tabs-container">
+                    <div class="team-tabs" id="team-tabs">
+                        <!-- Dynamically filled by JS -->
+                    </div>
+                </div>
+
+                <!-- Experts Cards Grid -->
+                <div class="experts-grid" id="experts-grid">
+                    <!-- Dynamically filled by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Setup Guide Section -->
+        <section id="setup" class="setup-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">SETUP MANUAL</span>
+                    <h2>Proxy Interview Setup Guide</h2>
+                    <p>A step-by-step walk-through of the hardware & software requirements for a 100% secure, fail-proof, and confidential proxy session.</p>
+                </div>
+
+                <div class="setup-layout">
+                    <!-- Left: Navigation Steps -->
+                    <div class="setup-steps-nav" id="setup-steps-nav">
+                        <!-- Dynamically populated by script.js -->
+                    </div>
+
+                    <!-- Right: Step Details Card -->
+                    <div class="setup-details-card" id="setup-details-card">
+                        <!-- Dynamically populated/updated by JS -->
+                    </div>
+                </div>
+
+                <div class="setup-footer-link">
+                    <p>For an exhaustive breakdown, download our official guide:</p>
+                    <a href="https://docs.google.com/document/d/1Okuk8fbuXBlHjAWwxlzb8ljRfL1k46TNP06ZWdYFn-Y/edit?tab=t.0" target="_blank" rel="noopener" class="btn btn-secondary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        View Setup Document
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Timeline Section -->
+        <section id="process" class="process-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">OUR PROCESS</span>
+                    <h2>Four Steps to Your Dream Job</h2>
+                    <p>Our streamlined pipeline takes you from preparation to interview day and daily support in four easy phases.</p>
+                </div>
+
+                <div class="process-timeline">
+                    <!-- Step 1 -->
+                    <div class="timeline-step">
+                        <div class="step-number-glow">01</div>
+                        <div class="timeline-content">
+                            <h3>Connect & Consult</h3>
+                            <p>Share your target role, resume, job details, and scheduling timelines. We schedule a free introductory consult via WhatsApp or video call.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="timeline-step">
+                        <div class="step-number-glow">02</div>
+                        <div class="timeline-content">
+                            <h3>Strategize & Match</h3>
+                            <p>We match you with an elite proxy expert matching your technology stack. We conduct dry runs on remote environments to verify network speed and configuration.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="timeline-step">
+                        <div class="step-number-glow">03</div>
+                        <div class="timeline-content">
+                            <h3>Execute Mock / Live</h3>
+                            <p>For Mock Interviews, we grade and review. For live interviews, our expert logs in remotely, tracking and prompt-answering in real-time with zero lag.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="timeline-step">
+                        <div class="step-number-glow">04</div>
+                        <div class="timeline-content">
+                            <h3>Succeed & Support</h3>
+                            <p>Once you secure your job offer, we provide daily job support. We assist with onboarding code, sprint tasks, and standard verification procedures.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="pricing-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">PRICING PLANS</span>
+                    <h2>Transparent & Value-Driven Pricing</h2>
+                    <p>No hidden charges. Clear, modular pricing for individual needs, from mock sessions to comprehensive month-long support.</p>
+                </div>
+
+                <div class="pricing-grid" id="pricing-grid">
+                    <!-- Dynamically populated by script.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" class="reviews-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">SUCCESS STORIES</span>
+                    <h2>Trusted by Candidates Globally</h2>
+                    <p>Hear from clients who transitioned from interview stress to high-paying tech careers with our remote assistance.</p>
+                </div>
+
+                <div class="reviews-grid">
+                    <!-- Review 1 -->
+                    <div class="review-card">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"TechMan Assist took all the anxiety out of the interview loop. The remote screen configuration was perfectly stealthy, and the expert coding in real-time was flawless. Passed Amazon SDE-2 loop effortlessly!"</p>
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">RK</div>
+                            <div>
+                                <h4 class="reviewer-name">Rajesh K.</h4>
+                                <span class="reviewer-title">Senior SDE @ Amazon</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="review-card">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"As a fresher, finding a job was difficult. TechMan Assist helped me clear the Microsoft coding rounds. Their post-placement job support has been a lifesaver in my first few months on the team!"</p>
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">PM</div>
+                            <div>
+                                <h4 class="reviewer-name">Priya M.</h4>
+                                <span class="reviewer-title">SDE-1 @ Microsoft</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="review-card">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"I wanted to shift from QA to DevOps. They matched me with a Lead SRE who aced the systems engineering interview. I highly recommend their BG verification tips too. Worth every penny."</p>
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">AS</div>
+                            <div>
+                                <h4 class="reviewer-name">Anil S.</h4>
+                                <span class="reviewer-title">DevOps Engineer @ Google</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Verification Gallery Section -->
+        <section id="gallery" class="gallery-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">VERIFIED RESULTS</span>
+                    <h2>Proof of Our Success</h2>
+                    <p>Real results from real candidates. Browse verified cloud certifications, technical assignment solutions, and official job offer letters with redacted details.</p>
+                </div>
+
+                <!-- Gallery Tabs Navigation -->
+                <div class="gallery-tabs-container">
+                    <div class="gallery-tabs" id="gallery-tabs">
+                        <button class="gallery-tab-btn active" data-category="offers">Offer Letters</button>
+                        <button class="gallery-tab-btn" data-category="assignments">Technical Assignments</button>
+                        <button class="gallery-tab-btn" data-category="certificates">Certifications</button>
+                    </div>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="gallery-grid" id="gallery-grid">
+                    <!-- Dynamically populated by script.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox Modal for Screenshots -->
+        <div id="lightbox" class="lightbox">
+            <span class="lightbox-close">&times;</span>
+            <img class="lightbox-content" id="lightbox-img" alt="Enlarged screenshot">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+
+        <!-- WhatsApp Community Middle Banner -->
+        <section class="community-banner-section">
+            <div class="container">
+                <div class="community-card">
+                    <div class="community-content">
+                        <h3>Join Our Job Updates Network</h3>
+                        <p>Get instant notifications about remote vacancies, direct hiring contacts, interview question leaks, and setup documents directly on WhatsApp.</p>
+                        <a href="https://chat.whatsapp.com/EUnxXypvR6tIfAVSEobufs" target="_blank" rel="noopener" class="btn btn-primary btn-whatsapp-mid">
+                            <span>Join WhatsApp Community</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.97C16.59 2.016 14.11 1.008 11.48 1.008c-5.442 0-9.87 4.372-9.874 9.802-.001 1.77.464 3.5 1.349 5.022L1.93 22.025l6.347-1.656c1.554.848 3.197 1.285 4.845 1.285zm12.336-7.85c-.32-.16-1.89-.933-2.185-1.04-.294-.108-.508-.16-.721.16-.214.32-.828 1.04-.1.16s-.535-.246-.906-.324c-.267-.056-.475-.24-.627-.478-.146-.226-.148-.567.042-.907.037-.066.079-.133.125-.2.247-.36.4-.64.444-.805.043-.165.022-.307-.01-.387-.033-.08-.321-.773-.44-1.058-.116-.28-.236-.241-.321-.245-.083-.004-.178-.004-.273-.004-.096 0-.251.036-.383.18-.132.144-.504.493-.504 1.201 0 .708.515 1.393.587 1.488.072.096 1.014 1.55 2.457 2.172.343.148.611.237.82.303.345.11.66.094.908.057.277-.041.89-.364 1.016-.716.126-.352.126-.654.088-.717-.038-.063-.14-.1-.46-.26z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQs Section -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">QUESTIONS</span>
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Find quick answers to common questions about proxy operations, tech stacks, billing, and confidentiality protocols.</p>
+                </div>
+
+                <div class="faq-list">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item">
+                        <button class="faq-trigger">
+                            <span>What is an interview proxy service?</span>
+                            <span class="faq-icon"></span>
+                        </button>
+                        <div class="faq-panel">
+                            <div class="faq-content">
+                                <p>An interview proxy service is a support method where an experienced industry expert sits for your live tech interview. By utilizing remote connection software and discrete audio configuration, the expert solves coding challenges, explains system architectures, and answers questions in real-time, ensuring a successful hire outcome.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="faq-item">
+                        <button class="faq-trigger">
+                            <span>How much does an interview proxy cost?</span>
+                            <span class="faq-icon"></span>
+                        </button>
+                        <div class="faq-panel">
+                            <div class="faq-content">
+                                <p>Our standard pricing is $130 per individual proxy session. This covers remote desktop preparation, hardware coordination, matching you with a tailored technical interviewer, and executing the live interview. Group packages or high-frequency loops can be discussed with our coordinators.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="faq-item">
+                        <button class="faq-trigger">
+                            <span>What technologies do your experts cover?</span>
+                            <span class="faq-icon"></span>
+                        </button>
+                        <div class="faq-panel">
+                            <div class="faq-content">
+                                <p>We cover over 50+ technology stacks across SDE, Backend (Java, Go, Node, Python, C++), Frontend (React, Angular, Vue), Mobile (Swift, Kotlin, Flutter), QA (Automation, Selenium), Data Engineering (Spark, Hadoop, SQL), DevOps (AWS, Kubernetes, Terraform), AI/ML, ERP (SAP, Salesforce), and Cybersecurity. If your technology is niche, contact us and we will match you with a specialized expert.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="faq-item">
+                        <button class="faq-trigger">
+                            <span>How does the interview proxy process work?</span>
+                            <span class="faq-icon"></span>
+                        </button>
+                        <div class="faq-panel">
+                            <div class="faq-content">
+                                <p>First, you connect with us and share your interview schedule. We match you with a domain expert and set up Chrome Remote Desktop. During the interview, you sit in front of the camera. The expert views the coding screen remotely, codes in real-time on your interface, and transmits code arguments, system explanations, or speech scripts to you through discrete audio prompts.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="faq-item">
+                        <button class="faq-trigger">
+                            <span>Is the service confidential?</span>
+                            <span class="faq-icon"></span>
+                        </button>
+                        <div class="faq-panel">
+                            <div class="faq-content">
+                                <p>Yes, confidentiality is our highest priority. All communication, payment details, candidate information, and setup logs are fully encrypted and deleted after the loop. No external profiles or names are ever linked or recorded.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 6 -->
+                    <div class="faq-item">
+                        <button class="faq-trigger">
+                            <span>How do I book a session?</span>
+                            <span class="faq-icon"></span>
+                        </button>
+                        <div class="faq-panel">
+                            <div class="faq-content">
+                                <p>You can schedule a session by contacting us directly on WhatsApp or sending an email. Let us know the company name, job description, tech stack, and interview date. We recommend booking at least 48 hours in advance to guarantee expert allocation and complete environment test dry runs.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 7 -->
+                    <div class="faq-item">
+                        <button class="faq-trigger">
+                            <span>What is job support and how does it work?</span>
+                            <span class="faq-icon"></span>
+                        </button>
+                        <div class="faq-panel">
+                            <div class="faq-content">
+                                <p>Job Support is a monthly subscription service where we match you with a technical mentor who helps you execute your on-the-job responsibilities. If you face difficult tasks, blockers, or need code debugging during your sprint, you can jump on a screen-sharing call with your mentor to solve the problem together.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 8 -->
+                    <div class="faq-item">
+                        <button class="faq-trigger">
+                            <span>Do you offer services for all interview platforms?</span>
+                            <span class="faq-icon"></span>
+                        </button>
+                        <div class="faq-panel">
+                            <div class="faq-content">
+                                <p>Yes, we support all major testing & interview platforms including HackerRank, LeetCode, CoderPad, Zoom, Google Meet, Microsoft Teams, Webex, Codility, Glider, Karat, and custom corporate interview setups.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="contact-card">
+                    <div class="ambient-glow glow-contact"></div>
+                    <div class="contact-info-panel">
+                        <h2>Ready to Pass Your Next Tech Interview?</h2>
+                        <p>Reach out to us directly via WhatsApp or email. Our team is available 24/7 to coordinate expert availability, remote configurations, and pricing structures.</p>
+                        
+                        <div class="contact-items">
+                            <div class="contact-item">
+                                <div class="item-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.97C16.59 2.016 14.11 1.008 11.48 1.008c-5.442 0-9.87 4.372-9.874 9.802-.001 1.77.464 3.5 1.349 5.022L1.93 22.025l6.347-1.656c1.554.848 3.197 1.285 4.845 1.285zm12.336-7.85c-.32-.16-1.89-.933-2.185-1.04-.294-.108-.508-.16-.721.16-.214.32-.828 1.04-.1.16s-.535-.246-.906-.324c-.267-.056-.475-.24-.627-.478-.146-.226-.148-.567.042-.907.037-.066.079-.133.125-.2.247-.36.4-.64.444-.805.043-.165.022-.307-.01-.387-.033-.08-.321-.773-.44-1.058-.116-.28-.236-.241-.321-.245-.083-.004-.178-.004-.273-.004-.096 0-.251.036-.383.18-.132.144-.504.493-.504 1.201 0 .708.515 1.393.587 1.488.072.096 1.014 1.55 2.457 2.172.343.148.611.237.82.303.345.11.66.094.908.057.277-.041.89-.364 1.016-.716.126-.352.126-.654.088-.717-.038-.063-.14-.1-.46-.26z"/></svg>
+                                </div>
+                                <div class="item-text">
+                                    <span>WhatsApp Coordinator</span>
+                                    <a href="https://wa.me/16418191430?text=Hi,%20I'm%20interested%20in%20your%20services.%20Please%20share%20more%20details." target="_blank" rel="noopener">+1 (641) 819-1430</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="item-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                </div>
+                                <div class="item-text">
+                                    <span>Email Support</span>
+                                    <a href="mailto:support@techmanassist.com">support@techmanassist.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form Area -->
+                    <div class="contact-form-panel">
+                        <form id="consultation-form">
+                            <div class="form-group">
+                                <label for="form-name">Full Name</label>
+                                <input type="text" id="form-name" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-email">Email Address</label>
+                                <input type="email" id="form-email" placeholder="john@example.com" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="form-phone">WhatsApp Number</label>
+                                    <input type="tel" id="form-phone" placeholder="+1 6418191430" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="form-service">Select Service</label>
+                                    <select id="form-service" required>
+                                        <option value="" disabled selected>Choose a Service</option>
+                                        <option value="practice">Practice Session (Free)</option>
+                                        <option value="mock">Mock Interview ($80)</option>
+                                        <option value="proxy">Interview Proxy ($130)</option>
+                                        <option value="cert">Certification Help ($70)</option>
+                                        <option value="support">Job Support ($750)</option>
+                                        <option value="bgv">Verification Help</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-details">Interview / Job Details (Role, Stack, Dates)</label>
+                                <textarea id="form-details" rows="3" placeholder="e.g. AWS Backend Developer role at Amazon, Java/Spring Boot stack. Interview scheduled on July 20." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Submit Consultation Request</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="url(#logo-grad-footer)" stroke-width="2.5">
+                                <defs>
+                                    <linearGradient id="logo-grad-footer" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#4f46e5" />
+                                        <stop offset="100%" stop-color="#06b6d4" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <span>TechMan<span>Assist</span></span>
+                    </a>
+                    <p>Securing tech positions through senior developer proxies, verified mock certifications, and daily job execution assistance.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#team">Experts Team</a></li>
+                        <li><a href="#setup">Setup Guide</a></li>
+                        <li><a href="#process">Our Process</a></li>
+                        <li><a href="#gallery">Results Proof</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#pricing">Pricing Plans</a></li>
+                        <li><a href="#reviews">Success Reviews</a></li>
+                        <li><a href="#faq">Frequently Asked</a></li>
+                        <li><a href="https://docs.google.com/document/d/1g0kqkE27k47tuczT_QY4uYWv26w-EO9G9SjT7drkYXY/edit?pli=1&tab=t.0" target="_blank" rel="noopener">Official Setup Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal & Safety</h4>
+                    <ul>
+                        <li><a href="#faq">Stealth Protocol</a></li>
+                        <li><a href="#faq">Confidentiality Rules</a></li>
+                        <li><a href="#faq">Terms of Service</a></li>
+                        <li><a href="#contact">WhatsApp Support</a></li>
+                        <li><a href="#" id="admin-portal-link" style="color: var(--color-primary-light); font-weight: 600;">Admin Portal</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 TechMan Assist. All Rights Reserved. Fully Encrypted & Confidential.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Widget -->
+    <a href="https://wa.me/16418191430?text=Hi,%20I'm%20interested%20in%20your%20services.%20Please%20share%20more%20details." target="_blank" rel="noopener" class="whatsapp-floating" aria-label="Chat on WhatsApp">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.97C16.59 2.016 14.11 1.008 11.48 1.008c-5.442 0-9.87 4.372-9.874 9.802-.001 1.77.464 3.5 1.349 5.022L1.93 22.025l6.347-1.656c1.554.848 3.197 1.285 4.845 1.285zm12.336-7.85c-.32-.16-1.89-.933-2.185-1.04-.294-.108-.508-.16-.721.16-.214.32-.828 1.04-.1.16s-.535-.246-.906-.324c-.267-.056-.475-.24-.627-.478-.146-.226-.148-.567.042-.907.037-.066.079-.133.125-.2.247-.36.4-.64.444-.805.043-.165.022-.307-.01-.387-.033-.08-.321-.773-.44-1.058-.116-.28-.236-.241-.321-.245-.083-.004-.178-.004-.273-.004-.096 0-.251.036-.383.18-.132.144-.504.493-.504 1.201 0 .708.515 1.393.587 1.488.072.096 1.014 1.55 2.457 2.172.343.148.611.237.82.303.345.11.66.094.908.057.277-.041.89-.364 1.016-.716.126-.352.126-.654.088-.717-.038-.063-.14-.1-.46-.26z"/></svg>
+    </a>
+
+    <!-- Admin Portal Login Modal -->
+    <div id="admin-login-modal" class="admin-modal">
+        <div class="admin-modal-content login-box">
+            <span class="admin-modal-close" onclick="closeAdminLogin()">&times;</span>
+            <h3>Admin Portal Authentication</h3>
+            <p>Please enter the administrator passcode to access screenshot manager settings.</p>
+            <form id="admin-login-form">
+                <div class="form-group">
+                    <label for="admin-passcode">Passcode</label>
+                    <input type="password" id="admin-passcode" placeholder="Enter passcode" required>
+                </div>
+                <div id="login-error-msg" class="error-msg" style="color: #ef4444; font-size: 0.85rem; margin-bottom: 16px; display: none;">Invalid passcode, try again.</div>
+                <button type="submit" class="btn btn-primary btn-block">Authenticate</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Portal Dashboard Modal -->
+    <div id="admin-dashboard-modal" class="admin-modal">
+        <div class="admin-modal-content dashboard-box">
+            <span class="admin-modal-close" onclick="closeAdminDashboard()">&times;</span>
+            <h3>Admin Management Dashboard</h3>
+            <p class="dashboard-desc">Add, remove, or update screenshot tiles and technical support experts dynamically.</p>
+            
+            <!-- Dashboard Tab Navigation -->
+            <div class="admin-tab-nav">
+                <button class="admin-tab-btn active" data-target="tab-screenshots">Screenshots</button>
+                <button class="admin-tab-btn" data-target="tab-experts">Support Experts</button>
+                <button class="admin-tab-btn" data-target="tab-pricing">Pricing Plans</button>
+                <button class="admin-tab-btn" data-target="tab-setup">Setup Guide</button>
+                <button class="admin-tab-btn" data-target="tab-settings">Cloud Settings</button>
+            </div>
+
+            <!-- Tab 1: Screenshots -->
+            <div id="tab-screenshots" class="admin-tab-content active">
+                <div class="admin-dashboard-layout">
+                    <!-- Left: Add screenshot form -->
+                    <div class="admin-upload-form-panel">
+                        <h4>Upload New Screenshot</h4>
+                        <form id="admin-upload-form">
+                            <div class="form-group">
+                                <label for="upload-category">Category</label>
+                                <select id="upload-category" required>
+                                    <option value="offers">Offer Letters</option>
+                                    <option value="assignments">Technical Assignments</option>
+                                    <option value="certificates">Certifications</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="upload-title">Tile Title</label>
+                                <input type="text" id="upload-title" placeholder="e.g. AWS Solutions Architect Pro" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="upload-desc">Description</label>
+                                <input type="text" id="upload-desc" placeholder="e.g. Redacted proof of AWS certification pass." required>
+                            </div>
+                            <div class="form-group">
+                                <label for="upload-file">Select Image File</label>
+                                <input type="file" id="upload-file" accept="image/*" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Add Tile to Gallery</button>
+                        </form>
+                    </div>
+                    
+                    <!-- Right: Manage uploaded screenshots list -->
+                    <div class="admin-manage-panel">
+                        <h4>Current Screenshot Tiles</h4>
+                        <div class="admin-items-list" id="admin-items-list">
+                            <!-- Dynamically generated list of tiles with delete button -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 2: Support Experts -->
+            <div id="tab-experts" class="admin-tab-content">
+                <div class="admin-dashboard-layout">
+                    <!-- Left: Add expert form -->
+                    <div class="admin-upload-form-panel">
+                        <h4>Add New Support Expert</h4>
+                        <form id="admin-expert-form">
+                            <div class="form-group">
+                                <label for="expert-domain">Domain / Stack</label>
+                                <select id="expert-domain" required>
+                                    <option value="SDE">SDE</option>
+                                    <option value="Backend">Backend</option>
+                                    <option value="Frontend">Frontend</option>
+                                    <option value="Mobile">Mobile</option>
+                                    <option value="QA">QA</option>
+                                    <option value="DE">DE</option>
+                                    <option value="DevOps">DevOps</option>
+                                    <option value="AI/ML">AI/ML</option>
+                                    <option value="ERP">ERP</option>
+                                    <option value="Security">Security</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="expert-name">Full Name</label>
+                                <input type="text" id="expert-name" placeholder="e.g. Rohan Sharma" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="expert-role">Role</label>
+                                <input type="text" id="expert-role" placeholder="e.g. Software Engineer III" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="expert-company">Former Company</label>
+                                <input type="text" id="expert-company" placeholder="e.g. Former Microsoft" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="expert-tech">Technologies (comma separated)</label>
+                                <input type="text" id="expert-tech" placeholder="e.g. React, Node.js, C++" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Add Expert to Team</button>
+                        </form>
+                    </div>
+
+                    <!-- Right: Manage uploaded experts list -->
+                    <div class="admin-manage-panel">
+                        <h4>Current Experts List</h4>
+                        <div class="admin-items-list" id="admin-experts-list">
+                            <!-- Dynamically generated list of experts with delete button -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 3: GitHub Settings -->
+            <!-- Tab 3: Cloud Settings -->
+            <div id="tab-settings" class="admin-tab-content">
+                <div style="max-width: 600px; margin: 0 auto; padding: 20px 0;">
+                    <form id="admin-settings-form">
+                        
+                        <!-- GitHub Code Sync Section -->
+                        <div style="border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 24px; margin-bottom: 24px;">
+                            <h4 style="font-size: 1.1rem; color: var(--text-white); margin-bottom: 12px; border-left: 3px solid var(--color-secondary); padding-left: 10px;">GitHub Repository Integration (Optional)</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px; line-height: 1.5;">
+                                Connect your site code to GitHub. Code updates commit automatically to your repository, triggering Netlify builds.
+                            </p>
+                            <div class="form-group" style="margin-bottom: 16px;">
+                                <label for="settings-github-username">GitHub Username / Org</label>
+                                <input type="text" id="settings-github-username" placeholder="e.g. your-github-profile" style="width: 100%; padding: 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 6px; color: #fff;">
+                            </div>
+                            <div class="form-group" style="margin-bottom: 16px;">
+                                <label for="settings-github-repo">Repository Name</label>
+                                <input type="text" id="settings-github-repo" placeholder="e.g. techman-assist-website" style="width: 100%; padding: 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 6px; color: #fff;">
+                            </div>
+                            <div class="form-group" style="margin-bottom: 16px;">
+                                <label for="settings-github-branch">Branch</label>
+                                <input type="text" id="settings-github-branch" value="main" placeholder="e.g. main" style="width: 100%; padding: 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 6px; color: #fff;">
+                            </div>
+                            <div class="form-group" style="margin-bottom: 12px;">
+                                <label for="settings-github-token">Personal Access Token (PAT)</label>
+                                <input type="password" id="settings-github-token" placeholder="ghp_..." style="width: 100%; padding: 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 6px; color: #fff;">
+                                <span style="font-size: 0.75rem; color: var(--text-dim); display: block; margin-top: 6px;">Token requires `repo` write scopes.</span>
+                            </div>
+                        </div>
+
+                        <!-- Supabase Cloud Section -->
+                        <div style="margin-bottom: 28px;">
+                            <h4 style="font-size: 1.1rem; color: var(--text-white); margin-bottom: 12px; border-left: 3px solid var(--color-primary); padding-left: 10px;">Supabase Database & Storage (Recommended for 100k+ Scale)</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px; line-height: 1.5;">
+                                Offload database files and images to Supabase. This stores files securely in Supabase Storage and queries data directly from PostgreSQL tables, scaling up to 100,000+ files easily.
+                            </p>
+                            <div class="form-group" style="margin-bottom: 16px;">
+                                <label for="settings-supabase-url">Supabase Project URL</label>
+                                <input type="text" id="settings-supabase-url" placeholder="e.g. https://xyzabc.supabase.co" style="width: 100%; padding: 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 6px; color: #fff;">
+                            </div>
+                            <div class="form-group" style="margin-bottom: 12px;">
+                                <label for="settings-supabase-key">Supabase Public Anon Key</label>
+                                <input type="password" id="settings-supabase-key" placeholder="eyJhbGci..." style="width: 100%; padding: 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 6px; color: #fff;">
+                                <span style="font-size: 0.75rem; color: var(--text-dim); display: block; margin-top: 6px;">Exposed safely in the frontend. Protect it with database Row Level Security (RLS) policies.</span>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 12px;">
+                            <button type="submit" class="btn btn-primary" style="padding: 10px 24px; font-size: 0.9rem;">Save Cloud Configuration</button>
+                            <button type="button" id="btn-clear-settings" class="btn btn-secondary" style="padding: 10px 24px; font-size: 0.9rem;">Clear Settings</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Tab 4: Pricing Plans -->
+            <div id="tab-pricing" class="admin-tab-content">
+                <div class="admin-dashboard-layout">
+                    <!-- Left: Add plan form -->
+                    <div class="admin-upload-form-panel">
+                        <h4>Add New Pricing Plan</h4>
+                        <form id="admin-pricing-form">
+                            <div class="form-group">
+                                <label for="plan-title">Plan Title</label>
+                                <input type="text" id="plan-title" placeholder="e.g. Mock Interview" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="plan-price">Price (Numerical value or 'FREE')</label>
+                                <input type="text" id="plan-price" placeholder="e.g. 80 or FREE" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="plan-period">Billing Period</label>
+                                <input type="text" id="plan-period" placeholder="e.g. / session or of cost" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="plan-desc">Description</label>
+                                <input type="text" id="plan-desc" placeholder="e.g. Evaluate your skills with senior..." required>
+                            </div>
+                            <div class="form-group">
+                                <label for="plan-benefits">Benefits (comma separated)</label>
+                                <input type="text" id="plan-benefits" placeholder="e.g. Benefit 1, Benefit 2, Benefit 3" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="plan-whatsapp">WhatsApp Message Text</label>
+                                <input type="text" id="plan-whatsapp" placeholder="e.g. Hi, I want to book a Mock Interview." required>
+                            </div>
+                            <div class="form-group" style="display: flex; align-items: center; gap: 8px; margin-top: 10px;">
+                                <input type="checkbox" id="plan-popular" style="width: auto;">
+                                <label for="plan-popular" style="margin-bottom: 0; cursor: pointer;">Popular Plan (Add 'Most Popular' badge)</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block" style="margin-top: 16px;">Add Plan</button>
+                        </form>
+                    </div>
+
+                    <!-- Right: Manage plans list -->
+                    <div class="admin-manage-panel">
+                        <h4>Current Pricing Plans</h4>
+                        <div class="admin-items-list" id="admin-pricing-list">
+                            <!-- Dynamically generated list of plans with delete button -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 5: Setup Guide -->
+            <div id="tab-setup" class="admin-tab-content">
+                <div class="admin-dashboard-layout">
+                    <!-- Left: Add/Edit setup step form -->
+                    <div class="admin-upload-form-panel">
+                        <h4>Add/Edit Setup Step</h4>
+                        <form id="admin-setup-form">
+                            <div class="form-group">
+                                <label for="setup-step-number">Step Number</label>
+                                <input type="number" id="setup-step-number" placeholder="e.g. 5" min="1" required style="width: 100%; padding: 10px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 6px; color: #fff;">
+                            </div>
+                            <div class="form-group">
+                                <label for="setup-title">Step Title</label>
+                                <input type="text" id="setup-title" placeholder="e.g. UltraViewer Setup" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="setup-subtitle">Subtitle</label>
+                                <input type="text" id="setup-subtitle" placeholder="e.g. Remote Control System Config" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="setup-desc">Description</label>
+                                <input type="text" id="setup-desc" placeholder="e.g. Setting up a backup remote connection..." required>
+                            </div>
+                            <div style="border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 12px; margin-top: 12px;">
+                                <h5 style="color: var(--text-white); font-size: 0.9rem; margin-bottom: 12px;">Requirement Bullet Items (Labels & Descriptions)</h5>
+                                <div class="form-group">
+                                    <label for="setup-item1-label">Item 1 Label</label>
+                                    <input type="text" id="setup-item1-label" placeholder="e.g. Extension Download" required>
+                                    <label for="setup-item1-desc" style="margin-top: 4px;">Item 1 Description</label>
+                                    <input type="text" id="setup-item1-desc" placeholder="e.g. Install browser extensions" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="setup-item2-label">Item 2 Label</label>
+                                    <input type="text" id="setup-item2-label" placeholder="e.g. Connection verification" required>
+                                    <label for="setup-item2-desc" style="margin-top: 4px;">Item 2 Description</label>
+                                    <input type="text" id="setup-item2-desc" placeholder="e.g. Test network speed" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="setup-item3-label">Item 3 Label</label>
+                                    <input type="text" id="setup-item3-label" placeholder="e.g. Security check" required>
+                                    <label for="setup-item3-desc" style="margin-top: 4px;">Item 3 Description</label>
+                                    <input type="text" id="setup-item3-desc" placeholder="e.g. Verify local sandbox configuration" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block" style="margin-top: 16px;">Add/Update Step</button>
+                        </form>
+                    </div>
+
+                    <!-- Right: Manage setup list -->
+                    <div class="admin-manage-panel">
+                        <h4>Current Setup Steps</h4>
+                        <div class="admin-items-list" id="admin-setup-list">
+                            <!-- Dynamically generated list of setup steps with delete button -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Application JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "offers": [
+    { "id": "off-1", "title": "SDE-2 Offer Letter", "desc": "Top-tier E-commerce company offer package, fully verified.", "img": "offer_letter.png" },
+    { "id": "off-2", "title": "Backend Architect Offer", "desc": "Global fintech group remote contract and placement documentation.", "img": "offer_letter.png" },
+    { "id": "off-3", "title": "Senior DevOps Offer", "desc": "Unicorn startup lead operations engineer offer details.", "img": "offer_letter.png" }
+  ],
+  "assignments": [
+    { "id": "asn-1", "title": "HackerRank Coding Task", "desc": "Optimized graph traversals submitted for FAANG coding round.", "img": "assignment.png" },
+    { "id": "asn-2", "title": "Karat System Design Draft", "desc": "Stealth system diagrams and API schemas for high-traffic servers.", "img": "assignment.png" },
+    { "id": "asn-3", "title": "Spring Boot Sprint Task", "desc": "Clean MVC code structure solved for pre-onboarding assessment.", "img": "assignment.png" }
+  ],
+  "certificates": [
+    { "id": "crt-1", "title": "AWS Solutions Architect Pro", "desc": "Verified Amazon Web Services Professional level certificate.", "img": "certificate.png" },
+    { "id": "crt-2", "title": "Microsoft Azure Dev Associate", "desc": "Verified Azure Associate level developer certification.", "img": "certificate.png" },
+    { "id": "crt-3", "title": "Google Cloud Professional Architect", "desc": "Verified Google Cloud Professional Cloud Architect certification.", "img": "certificate.png" }
+  ]
+}

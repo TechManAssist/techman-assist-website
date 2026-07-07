@@ -1,0 +1,72 @@
+[
+  {
+    "id": "plan-practice",
+    "title": "Practice Session",
+    "price": "FREE",
+    "period": "of cost",
+    "desc": "Benchmarking sandbox and remote connection hardware testing to calibrate setups prior to actual rounds.",
+    "benefits": [
+      "Remote Desktop connection test",
+      "Audio latency calibration test",
+      "Free diagnostic check report"
+    ],
+    "popular": false,
+    "whatsapp_text": "Hi, I'm interested in setting up a Free Practice Session."
+  },
+  {
+    "id": "plan-mock",
+    "title": "Mock Interview",
+    "price": "80",
+    "period": "/ session",
+    "desc": "Benchmark your coding and design skills with senior tech managers in realistic interview environments.",
+    "benefits": [
+      "60-Minute Real-Time Coding/Design",
+      "Senior FAANG/Tier-1 Interviewer",
+      "Detailed Diagnostic grading report"
+    ],
+    "popular": false,
+    "whatsapp_text": "Hi, I'm interested in booking a Mock Interview session ($80)."
+  },
+  {
+    "id": "plan-proxy",
+    "title": "Interview Proxy",
+    "price": "130",
+    "period": "/ session",
+    "desc": "Stealth proxy support. An elite tech expert remotely logs in and passes your live round coding/design loops.",
+    "benefits": [
+      "Secure Remote Desktop settings",
+      "Live discrete audio prompt routing",
+      "98%+ Verified Passing rate"
+    ],
+    "popular": true,
+    "whatsapp_text": "Hi, I'm interested in your Interview Proxy services ($130)."
+  },
+  {
+    "id": "plan-cert",
+    "title": "Certification Help",
+    "price": "70",
+    "period": "/ cert",
+    "desc": "Pass your official AWS, Azure, and Google Cloud certification exams with guaranteed high scores.",
+    "benefits": [
+      "AWS, Azure & Google certifications",
+      "Guaranteed passing (100% refund)",
+      "Remote exam stealth setups"
+    ],
+    "popular": false,
+    "whatsapp_text": "Hi, I'm interested in getting Certification Help for AWS/Azure/Google ($70)."
+  },
+  {
+    "id": "plan-support",
+    "title": "Job Support",
+    "price": "750",
+    "period": "/ month",
+    "desc": "Daily dedicated technical support for 2 hours per day to debug tasks, review code, and secure your job placement.",
+    "benefits": [
+      "2 Hours Daily dedicated screen share",
+      "Code block execution & sprint support",
+      "Direct Senior Developer allocation"
+    ],
+    "popular": false,
+    "whatsapp_text": "Hi, I'm interested in your Job Support service ($750 - 2hrs/day)."
+  }
+]

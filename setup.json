@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "title": "Chrome Remote Desktop",
+    "subtitle": "Remote Screen Interface Config",
+    "text": "We utilize Chrome Remote Desktop for high-fidelity, secure visual connection. This allows our expert proxy to see your coding editor tab and write code answers in real-time with absolute precision and zero input delay.",
+    "items": [
+      { "label": "Software Extension", "desc": "Official Chrome remote extension from Google (zero install footprint)." },
+      { "label": "Stealth Settings", "desc": "Configuring layout resolutions and locking OS notification panels." },
+      { "label": "Network Bandwidth", "desc": "Broadband speeds over 25 Mbps recommended to prevent remote lag." }
+    ]
+  },
+  {
+    "step": 2,
+    "title": "Otter.ai Voice Feed",
+    "subtitle": "Stealth Audio Transcription Engine",
+    "text": "Otter.ai monitors the interviewer's speech feed and transcribes questions in real-time. The text feed is displayed on your auxiliary screen for the expert, ensuring we match verbal queries immediately.",
+    "items": [
+      { "label": "Live Transcript", "desc": "Transcribes meeting conversations instantly onto local support displays." },
+      { "label": "Audio Cable routing", "desc": "Virtual loops channel audio outputs straight to translation algorithms." },
+      { "label": "Prompt Display", "desc": "Secondary monitor outputs prompt answers for immediate reading." }
+    ]
+  },
+  {
+    "step": 3,
+    "title": "Meeting Tool Integration",
+    "subtitle": "Screen Share Calibration",
+    "text": "We optimize tab shares on Zoom, Google Meet, or Teams. Our system ensures you share only the specific compiler browser tab or code project window, keeping remote control software invisible.",
+    "items": [
+      { "label": "Tab-Level Sharing", "desc": "Only share a single window; remote inputs remain completely concealed." },
+      { "label": "Stealth Browser skin", "desc": "Hides address bars, bookmarks, and remote indicators in Chrome." },
+      { "label": "Audio routing", "desc": "Separates interviewer audio channels from support audio streams." }
+    ]
+  },
+  {
+    "step": 4,
+    "title": "Wired Hardware Setup",
+    "subtitle": "Stealth Sound Configurations",
+    "text": "Connecting a physical wired headset is critical to hide communication profiles. We split the audio channels so you can converse naturally with the interviewer while getting discrete prompts through your inner earpiece.",
+    "items": [
+      { "label": "In-Ear Buds", desc: "Flat profile wired earpieces that stay invisible to desktop webcams." },
+      { "label": "Audio Splitter", desc: "Separates meeting feeds from real-time prompt instruction signals." },
+      { "label": "Camera Alignment", desc: "Eye-level calibration to keep focus angles natural during proxy typing." }
+    ]
+  }
+]

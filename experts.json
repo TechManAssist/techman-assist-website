@@ -1,0 +1,59 @@
+{
+  "SDE": [
+    { "name": "Rohan Sharma", "role": "Software Engineer III", "company": "Former Microsoft", "tech": ["React", "Node.js", "C++", "System Design"] },
+    { "name": "Advait", "role": "Senior Developer", "company": "Former Netflix", "tech": ["Java", "Distributed Systems", "Go"] },
+    { "name": "Vikram Malhotra", "role": "Staff Engineer", "company": "Former Amazon", "tech": ["Python", "AWS", "DynamoDB", "API Design"] },
+    { "name": "Kabir Roy", "role": "Mobile Engineer", "company": "Former Meta", "tech": ["React Native", "TypeScript", "GraphQL"] },
+    { "name": "Aravind Nair", "role": "Backend Architect", "company": "Former Uber", "tech": ["Go", "Kafka", "Redis", "gRPC"] }
+  ],
+  "Backend": [
+    { "name": "Srinivas Rao", "role": "Lead Engineer", "company": "Former Oracle", "tech": ["Java", "Spring Boot", "Microservices", "SQL"] },
+    { "name": "Madhavan Pillai", "role": "Principal Dev", "company": "Former Walmart Labs", "tech": ["Scala", "Hadoop", "Spark", "Kafka"] },
+    { "name": "Alok Mishra", "role": "Backend Developer", "company": "Former Microsoft", "tech": ["C#", ".NET Core", "Azure SQL", "WCF"] },
+    { "name": "Hari Krishnan", "role": "SDE-2", "company": "Former Flipkart", "tech": ["Node.js", "PostgreSQL", "Redis", "Express"] },
+    { "name": "Riya Shah", "role": "Kubernetes Expert", "company": "Former Zomato", "tech": ["Go", "Docker", "Kubernetes", "CI/CD"] },
+    { "name": "Yash Verma", "role": "Senior Developer", "company": "Former Swiggy", "tech": ["Python", "Django", "FastAPI", "MongoDB"] }
+  ],
+  "Frontend": [
+    { "name": "Simran Kapoor", "role": "Frontend Lead", "company": "Former Atlassian", "tech": ["React", "Webpack", "Design Systems", "Redux"] },
+    { "name": "Varun Saxena", "role": "UI Engineer", "company": "Former Adobe", "tech": ["Vue.js", "Nuxt.js", "Tailwind CSS", "Vite"] },
+    { "name": "Megha Das", "role": "Senior Web Developer", "company": "Former Myntra", "tech": ["Angular", "RxJS", "SASS", "TypeScript"] },
+    { "name": "Kunal Joshi", "role": "Web Integrator", "company": "Former Shopify", "tech": ["HTML5", "CSS3", "JavaScript", "Liquid"] }
+  ],
+  "Mobile": [
+    { "name": "Dev Patel", "role": "iOS Specialist", "company": "Former PhonePe", "tech": ["Swift", "SwiftUI", "iOS SDK", "Objective-C"] },
+    { "name": "Shreya Iyer", "role": "Android Lead", "company": "Former Freshworks", "tech": ["Kotlin", "Android Jetpack", "Java", "Coroutines"] },
+    { "name": "Rajveer Singh", "role": "Cross-Platform Dev", "company": "Former Paytm", "tech": ["Flutter", "Dart", "Firebase", "State Management"] },
+    { "name": "Anjali Menon", "role": "Mobile Architect", "company": "Former Ola", "tech": ["React Native", "JavaScript", "Objective-C", "Android Studio"] }
+  ],
+  "QA": [
+    { "name": "Vijay Gupta", "role": "SDET Manager", "company": "Former Infosys", "tech": ["Selenium", "Java", "TestNG", "Maven"] },
+    { "name": "Sunita Deshmukh", "role": "QA Architect", "company": "Former TCS", "tech": ["Playwright", "JavaScript", "CI/CD", "Jest"] },
+    { "name": "Pankaj Tiwari", "role": "Mobile Tester", "company": "Former Wipro", "tech": ["Appium", "Mobile QA", "JMeter", "API Testing"] }
+  ],
+  "DE": [
+    { "name": "Amanpreet Singh", "role": "Data Engineer III", "company": "Former Goldman Sachs", "tech": ["PySpark", "Hadoop", "Airflow", "Redshift"] },
+    { "name": "Neil", "role": "Analytics Lead", "company": "Former Stripe", "tech": ["Snowflake", "SQL", "DBT", "Python"] },
+    { "name": "Preeti Nair", "role": "Big Data Architect", "company": "Former Flipkart", "tech": ["Scala", "Spark Streaming", "Hive", "Kafka"] }
+  ],
+  "DevOps": [
+    { "name": "Ishaan", "role": "DevOps Engineer", "company": "Former Zepto", "tech": ["Terraform", "AWS", "Kubernetes", "Helm"] },
+    { "name": "Tarun Sharma", "role": "CI/CD Specialist", "company": "Former Razorpay", "tech": ["Docker", "Jenkins", "Ansible", "Linux Shell"] },
+    { "name": "Kavya Reddy", "role": "SRE", "company": "Former Swiggy", "tech": ["Prometheus", "Grafana", "Linux Systems", "Nginx"] }
+  ],
+  "AI/ML": [
+    { "name": "Divya Agarwal", "role": "ML Researcher", "company": "Former Amazon", "tech": ["Python", "PyTorch", "Scikit-Learn", "NLP"] },
+    { "name": "Pranav Chauhan", "role": "AI Engineer", "company": "Former Google", "tech": ["TensorFlow", "Keras", "Deep Learning", "CNN"] },
+    { "name": "Ishan Malhotra", "role": "Computer Vision Dev", "company": "Former Nvidia", "tech": ["CUDA", "OpenCV", "C++", "PyTorch"] }
+  ],
+  "ERP": [
+    { "name": "Ramesh Pandey", "role": "SAP Lead", "company": "Former Deloitte", "tech": ["SAP ABAP", "ERP Modules", "SAP HANA"] },
+    { "name": "Smita Bhat", "role": "Salesforce Architect", "company": "Former Accenture", "tech": ["Salesforce APEX", "LWC", "Visualforce"] },
+    { "name": "Ashish Dubey", "role": "Integration Lead", "company": "Former Cognizant", "tech": ["Workday HCM", "EIB", "Core Connectors"] },
+    { "name": "Ananya Kulkarni", "role": "ERP Consultant", "company": "Former EY", "tech": ["Oracle Fusion", "Financials Cloud", "SQL"] }
+  ],
+  "Security": [
+    { "name": "Sandeep Thakur", "role": "SecOps Specialist", "company": "Former PwC", "tech": ["Penetration Testing", "OWASP Top 10", "Kali Linux"] },
+    { "name": "Nupur Jain", "role": "GRC Lead Auditor", "company": "Former KPMG", "tech": ["ISO 27001", "Risk Assessment", "SOC2 Compliance"] }
+  ]
+}
