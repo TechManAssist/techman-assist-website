@@ -809,18 +809,10 @@
                         <form id="admin-expert-form">
                             <div class="form-group">
                                 <label for="expert-domain">Domain / Stack</label>
-                                <select id="expert-domain" required>
-                                    <option value="SDE">SDE</option>
-                                    <option value="Backend">Backend</option>
-                                    <option value="Frontend">Frontend</option>
-                                    <option value="Mobile">Mobile</option>
-                                    <option value="QA">QA</option>
-                                    <option value="DE">DE</option>
-                                    <option value="DevOps">DevOps</option>
-                                    <option value="AI/ML">AI/ML</option>
-                                    <option value="ERP">ERP</option>
-                                    <option value="Security">Security</option>
-                                </select>
+                                <input type="text" id="expert-domain" list="expert-domain-list" placeholder="e.g. DevOps" required>
+                                <datalist id="expert-domain-list">
+                                    <!-- Dynamically filled by JS -->
+                                </datalist>
                             </div>
                             <div class="form-group">
                                 <label for="expert-name">Full Name</label>

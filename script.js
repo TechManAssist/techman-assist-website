@@ -179,6 +179,12 @@ function initTeamSection() {
         return `<button class="tab-btn ${activeClass}" data-domain="${domain}">${domain}</button>`;
     }).join('');
 
+    // Update the Admin Expert form datalist options with current domains
+    const datalist = document.getElementById("expert-domain-list");
+    if (datalist) {
+        datalist.innerHTML = domains.map(d => `<option value="${d}">${d}</option>`).join('');
+    }
+
     // 2. Initial rendering of cards
     renderExperts(currentDomain);
 
@@ -1305,7 +1311,8 @@ function initAdminForms() {
                     alert("Expert added locally (preview mode)!");
                 }
 
-                renderExperts(currentDomain);
+                currentDomain = domain;
+                initTeamSection();
                 renderAdminExpertsList();
                 expertForm.reset();
             } catch (e) {
@@ -1718,6 +1725,10 @@ window.deleteExpertItem = async function(domain, index) {
     const targetExpert = originalList[domain] ? originalList[domain][index] : null;
     EXPERT_DATA[domain].splice(index, 1);
     
+    if (EXPERT_DATA[domain] && EXPERT_DATA[domain].length === 0) {
+        delete EXPERT_DATA[domain];
+    }
+    
     const settings = getGitHubSettings();
     const useGitHub = settings.username && settings.repo && settings.token;
 
@@ -1746,7 +1757,16 @@ window.deleteExpertItem = async function(domain, index) {
         alert("Expert deleted locally (preview mode)!");
     }
 
-    renderExperts(currentDomain);
+    const remainingDomains = Object.keys(EXPERT_DATA);
+    if (remainingDomains.length > 0) {
+        if (!remainingDomains.includes(currentDomain)) {
+            currentDomain = remainingDomains[0];
+        }
+    } else {
+        currentDomain = "";
+    }
+
+    initTeamSection();
     renderAdminExpertsList();
 };
 
