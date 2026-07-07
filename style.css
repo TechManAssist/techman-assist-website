@@ -712,7 +712,7 @@ p {
     font-size: 0.8rem;
     font-weight: 600;
     color: var(--text-muted);
-    margin-bottom: 20px;
+    margin-bottom: 0;
     text-align: center;
 }
 
