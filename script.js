@@ -670,6 +670,13 @@ function getGitHubSettings() {
     };
 }
 
+function getSupabaseSettings() {
+    return {
+        url: localStorage.getItem("supabase_url") || "https://otlgcerhbqwfcsddftcl.supabase.co",
+        key: localStorage.getItem("supabase_key") || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im90bGdjZXJoYnF3ZmNzZGRmdGNsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM0MjU5MDMsImV4cCI6MjA5OTAwMTkwM30.gaCf4U_o6lmN9ZKw0J4vzaV_N9Kz0Gng391Bx8_tTgo"
+    };
+}
+
 async function githubRequest(url, method = "GET", body = null) {
     const settings = getGitHubSettings();
     const headers = {
@@ -1473,13 +1480,6 @@ function initAdminForms() {
                 submitBtn.textContent = originalBtnText;
             }
         });
-    }
-
-    function getSupabaseSettings() {
-        return {
-            url: localStorage.getItem("supabase_url") || "",
-            key: localStorage.getItem("supabase_key") || ""
-        };
     }
 
     // 5. Settings Configuration Form
