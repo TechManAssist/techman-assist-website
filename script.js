@@ -272,7 +272,7 @@ function renderExperts(domain) {
                         </div>
                     </div>
                     <div class="expert-company">
-                        Former Lead <span class="company-logo-text">${exp.company.replace("Former ", "")}</span>
+                        <span class="company-logo-text">${exp.company.replace("Former ", "").replace("former ", "")}</span>
                     </div>
                 </article>
             `;
