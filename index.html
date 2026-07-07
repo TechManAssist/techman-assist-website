@@ -241,8 +241,22 @@
                     </div>
                 </div>
 
+                <!-- Domain Header (Dynamic) -->
+                <div class="team-domain-header" id="team-domain-header" style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 40px; margin-bottom: 24px; border-bottom: 1px solid var(--border-color); padding-bottom: 16px;">
+                    <div>
+                        <h3 id="team-domain-title" style="font-size: 1.5rem; color: var(--text-white); margin-bottom: 4px;">Software Engineers</h3>
+                        <p id="team-domain-subtitle" style="font-size: 0.85rem; color: var(--text-dim);">SDE / Full-Stack / Backend Experts</p>
+                    </div>
+                    <div id="team-domain-count" class="badge" style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); color: #10b981; font-weight: 600; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem;">5 Experts</div>
+                </div>
+
                 <!-- Experts Cards Grid -->
                 <div class="experts-grid" id="experts-grid">
+                    <!-- Dynamically filled by JS -->
+                </div>
+
+                <!-- Domain Skills Box -->
+                <div id="team-domain-skills" style="margin-top: 32px; padding: 24px; background: rgba(255,255,255,0.01); border: 1px solid var(--border-color); border-radius: var(--border-radius-lg); display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
                     <!-- Dynamically filled by JS -->
                 </div>
             </div>
@@ -826,10 +840,6 @@
                                 <label for="expert-company">Former Company</label>
                                 <input type="text" id="expert-company" placeholder="e.g. Former Microsoft" required>
                             </div>
-                            <div class="form-group">
-                                <label for="expert-tech">Technologies (comma separated)</label>
-                                <input type="text" id="expert-tech" placeholder="e.g. React, Node.js, C++" required>
-                            </div>
                             <button type="submit" class="btn btn-primary btn-block">Add Expert to Team</button>
                         </form>
                     </div>
@@ -839,6 +849,32 @@
                         <h4>Current Experts List</h4>
                         <div class="admin-items-list" id="admin-experts-list">
                             <!-- Dynamically generated list of experts with delete button -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section to Manage Skills -->
+                <div class="admin-dashboard-layout" style="margin-top: 40px; border-top: 1px solid var(--border-color); padding-top: 40px;">
+                    <!-- Left: Add skill form -->
+                    <div class="admin-upload-form-panel">
+                        <h4>Add Supported Skill</h4>
+                        <form id="admin-skill-form">
+                            <div class="form-group">
+                                <label for="skill-domain">Domain / Stack</label>
+                                <input type="text" id="skill-domain" list="expert-domain-list" placeholder="e.g. SDE" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="skill-name">Skill Name</label>
+                                <input type="text" id="skill-name" placeholder="e.g. Python" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Add Supported Skill</button>
+                        </form>
+                    </div>
+                    <!-- Right: Manage skills list -->
+                    <div class="admin-manage-panel">
+                        <h4>Current Supported Skills</h4>
+                        <div class="admin-items-list" id="admin-skills-list" style="max-height: 300px; overflow-y: auto;">
+                            <!-- Dynamically generated list of skills with delete button -->
                         </div>
                     </div>
                 </div>

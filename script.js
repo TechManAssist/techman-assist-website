@@ -76,6 +76,33 @@ const DEFAULT_EXPERT_DATA = {
 let EXPERT_DATA = null;
 let PRICING_DATA = null;
 
+const DEFAULT_SKILLS_DATA = {
+    "SDE": ["Java", "Python", "React", "Angular", "Node.js", "AWS", "Android", "iOS", "Flutter", ".NET", "Go", "PHP", "Selenium", "Salesforce", "SAP", "Kubernetes", "Docker", "Terraform", "Tableau", "Power BI", "Django", "Spring Boot", "Vue.js", "Next.js", "TypeScript", "MongoDB", "PostgreSQL", "Redis", "Kafka", "Spark"],
+    "Backend": ["Java", "Spring Boot", "Microservices", "Go", "Node.js", "Python", "Django", "FastAPI", "Express", "PostgreSQL", "MongoDB", "Redis", "Docker", "Kubernetes", "AWS", "GCP", "REST API", "GraphQL", "gRPC", "Kafka", "RabbitMQ"],
+    "Frontend": ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Angular", "Vue.js", "Next.js", "Svelte", "Tailwind CSS", "Bootstrap", "Webpack", "Vite", "Redux", "GraphQL", "Jest", "Cypress"],
+    "Mobile": ["iOS", "Swift", "SwiftUI", "Android", "Kotlin", "Java", "Flutter", "React Native", "Dart", "Objective-C", "Xcode", "Android Studio"],
+    "QA": ["Selenium", "Playwright", "Appium", "Cucumber", "TestNG", "JUnit", "JMeter", "Postman", "CI/CD", "JavaScript", "Python", "Java"],
+    "DE": ["PySpark", "Hadoop", "Airflow", "Redshift", "Snowflake", "SQL", "DBT", "Hive", "Kafka", "Spark Streaming", "Scala"],
+    "DevOps": ["Terraform", "AWS", "Kubernetes", "Docker", "Helm", "Jenkins", "Ansible", "Linux Shell", "Prometheus", "Grafana", "Nginx"],
+    "AI/ML": ["Python", "PyTorch", "TensorFlow", "Keras", "Scikit-Learn", "NLP", "CUDA", "OpenCV", "Deep Learning", "CNN"],
+    "ERP": ["SAP ABAP", "Salesforce APEX", "LWC", "Visualforce", "Workday HCM", "EIB", "Core Connectors", "Oracle Fusion", "Financials Cloud"],
+    "Security": ["Penetration Testing", "OWASP Top 10", "Kali Linux", "ISO 27001", "Risk Assessment", "SOC2 Compliance", "SecOps", "Network Security", "Burp Suite", "Wireshark"]
+};
+let SKILLS_DATA = null;
+
+const DOMAIN_METADATA = {
+    "SDE": { title: "Software Engineers", subtitle: "SDE / Full-Stack / Backend Experts" },
+    "Backend": { title: "Backend Engineers", subtitle: "Java, Python, Go, Node.js & Database Systems" },
+    "Frontend": { title: "Frontend Engineers", subtitle: "React, Angular, Vue, and Modern Web UI Systems" },
+    "Mobile": { title: "Mobile Engineers", subtitle: "iOS Swift, Android Kotlin & Cross-Platform Systems" },
+    "QA": { title: "QA Automation Specialists", subtitle: "Selenium, Playwright, API Testing & QA Engineering" },
+    "DE": { title: "Data Engineers", subtitle: "Big Data, Spark, SQL Pipelines & Cloud Warehouses" },
+    "DevOps": { title: "DevOps & Cloud Architects", subtitle: "AWS, Kubernetes, CI/CD pipelines & Infrastructure" },
+    "AI/ML": { title: "AI / ML Specialists", subtitle: "Python, TensorFlow, PyTorch & LLM engineering" },
+    "ERP": { title: "ERP Developers", subtitle: "Salesforce, SAP, Dynamics & Business Integrations" },
+    "Security": { title: "Security Specialists", subtitle: "SecOps, PenTesting, Application & Cyber Security" }
+};
+
 const DEFAULT_SETUP_STEP_DATA = [
   {
     "step": 1,
@@ -176,7 +203,11 @@ function initTeamSection() {
     const domains = Object.keys(EXPERT_DATA);
     tabsContainer.innerHTML = domains.map((domain, index) => {
         const activeClass = domain === currentDomain ? 'active' : '';
-        return `<button class="tab-btn ${activeClass}" data-domain="${domain}">${domain}</button>`;
+        const count = EXPERT_DATA[domain] ? EXPERT_DATA[domain].length : 0;
+        const activeBadgeStyle = domain === currentDomain 
+            ? 'background: rgba(255,255,255,0.2); color: #fff;' 
+            : 'background: rgba(255,255,255,0.06); color: var(--text-muted);';
+        return `<button class="tab-btn ${activeClass}" data-domain="${domain}">${domain} <span class="tab-badge" style="border-radius: 10px; padding: 2px 6px; font-size: 0.72rem; margin-left: 6px; font-weight: 700; ${activeBadgeStyle}">${count}</span></button>`;
     }).join('');
 
     // Update the Admin Expert form datalist options with current domains
@@ -211,6 +242,16 @@ function renderExperts(domain) {
 
     const list = EXPERT_DATA[domain] || [];
 
+    // Update Domain Summary Header
+    const domainTitle = document.getElementById("team-domain-title");
+    const domainSubtitle = document.getElementById("team-domain-subtitle");
+    const domainCount = document.getElementById("team-domain-count");
+
+    const meta = DOMAIN_METADATA[domain] || { title: `${domain} Specialists`, subtitle: `Expert support for ${domain} engineering` };
+    if (domainTitle) domainTitle.textContent = meta.title;
+    if (domainSubtitle) domainSubtitle.textContent = meta.subtitle;
+    if (domainCount) domainCount.textContent = `${list.length} Expert${list.length !== 1 ? 's' : ''}`;
+
     // Fade out first
     expertsGrid.style.opacity = "0.2";
     expertsGrid.style.transform = "translateY(5px)";
@@ -220,9 +261,6 @@ function renderExperts(domain) {
             // Generate Avatar Letters
             const nameParts = exp.name.split(" ");
             const initials = nameParts.map(part => part[0]).join("").substring(0, 2);
-
-            // Generate Tags
-            const tagsMarkup = exp.tech.map(t => `<span class="tech-tag">${t}</span>`).join('');
 
             return `
                 <article class="expert-card">
@@ -236,12 +274,21 @@ function renderExperts(domain) {
                     <div class="expert-company">
                         Former Lead <span class="company-logo-text">${exp.company.replace("Former ", "")}</span>
                     </div>
-                    <div class="expert-tech">
-                        ${tagsMarkup}
-                    </div>
                 </article>
             `;
         }).join('');
+
+        // Render Skills List
+        const skillsContainer = document.getElementById("team-domain-skills");
+        if (skillsContainer) {
+            const skillsList = SKILLS_DATA ? (SKILLS_DATA[domain] || []) : [];
+            if (skillsList.length > 0) {
+                skillsContainer.style.display = "flex";
+                skillsContainer.innerHTML = skillsList.map(s => `<span style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color); border-radius: 6px; padding: 6px 14px; font-size: 0.85rem; color: var(--text-muted); cursor: default; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--color-primary-light)'; this.style.color='#fff';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.color='var(--text-muted)';">${s}</span>`).join('');
+            } else {
+                skillsContainer.style.display = "none";
+            }
+        }
 
         // Fade in
         expertsGrid.style.opacity = "1";
@@ -960,6 +1007,23 @@ async function initDatabaseEngine() {
                 localStorage.setItem("techman_setup_data", JSON.stringify(SETUP_STEP_DATA));
                 setupLoaded = true;
             }
+
+            try {
+                const skillsRows = await querySupabase("skills");
+                if (skillsRows) {
+                    const groupedSkills = {};
+                    skillsRows.forEach(row => {
+                        if (!groupedSkills[row.domain]) {
+                            groupedSkills[row.domain] = [];
+                        }
+                        groupedSkills[row.domain].push(row.name);
+                    });
+                    SKILLS_DATA = groupedSkills;
+                    localStorage.setItem("techman_skills_data", JSON.stringify(SKILLS_DATA));
+                }
+            } catch (e) {
+                console.warn("Failed to load skills from Supabase, using default fallback:", e.message);
+            }
         } catch (e) {
             console.warn("Failed to load from Supabase on start. Falling back to GitHub or Local Cache.", e);
         }
@@ -1074,6 +1138,16 @@ async function initDatabaseEngine() {
                 SETUP_STEP_DATA = DEFAULT_SETUP_STEP_DATA;
                 localStorage.setItem("techman_setup_data", JSON.stringify(SETUP_STEP_DATA));
             }
+        }
+    }
+
+    if (!SKILLS_DATA) {
+        const cachedSkills = localStorage.getItem("techman_skills_data");
+        if (cachedSkills) {
+            SKILLS_DATA = JSON.parse(cachedSkills);
+        } else {
+            SKILLS_DATA = DEFAULT_SKILLS_DATA;
+            localStorage.setItem("techman_skills_data", JSON.stringify(SKILLS_DATA));
         }
     }
 
@@ -1268,16 +1342,13 @@ function initAdminForms() {
             const name = document.getElementById("expert-name").value;
             const role = document.getElementById("expert-role").value;
             const company = document.getElementById("expert-company").value;
-            const techString = document.getElementById("expert-tech").value;
-            
-            const tech = techString.split(",").map(t => t.trim()).filter(t => t !== "");
 
             const submitBtn = expertForm.querySelector("button[type='submit']");
             const originalBtnText = submitBtn.textContent;
             submitBtn.disabled = true;
             submitBtn.textContent = "Saving expert...";
 
-            const newExpert = { name, role, company, tech };
+            const newExpert = { name, role, company, tech: [] };
             const originalList = JSON.parse(JSON.stringify(EXPERT_DATA));
 
             if (!EXPERT_DATA[domain]) {
@@ -1297,8 +1368,7 @@ function initAdminForms() {
                         domain: domain,
                         name: name,
                         role: role,
-                        company: company,
-                        tech: tech
+                        company: company
                     });
                     localStorage.setItem("techman_experts_data", JSON.stringify(EXPERT_DATA));
                     alert("Expert added to Supabase successfully!");
@@ -1489,6 +1559,65 @@ function initAdminForms() {
         });
     }
 
+    // 4.7. Add Supported Skill Form
+    const skillForm = document.getElementById("admin-skill-form");
+    if (skillForm) {
+        skillForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const domain = document.getElementById("skill-domain").value.trim();
+            const name = document.getElementById("skill-name").value.trim();
+
+            const submitBtn = skillForm.querySelector("button[type='submit']");
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Saving skill...";
+
+            const originalList = JSON.parse(JSON.stringify(SKILLS_DATA || {}));
+            if (!SKILLS_DATA) SKILLS_DATA = {};
+            if (!SKILLS_DATA[domain]) {
+                SKILLS_DATA[domain] = [];
+            }
+            if (!SKILLS_DATA[domain].includes(name)) {
+                SKILLS_DATA[domain].push(name);
+            }
+
+            const settings = getGitHubSettings();
+            const useGitHub = settings.username && settings.repo && settings.token;
+
+            const sbSettings = getSupabaseSettings();
+            const useSupabase = sbSettings.url && sbSettings.key;
+
+            try {
+                if (useSupabase) {
+                    await querySupabase("skills", "POST", {
+                        domain: domain,
+                        name: name
+                    });
+                    localStorage.setItem("techman_skills_data", JSON.stringify(SKILLS_DATA));
+                    alert("Skill added to Supabase successfully!");
+                } else if (useGitHub) {
+                    await commitToGitHub("skills.json", SKILLS_DATA, `admin: add skill ${name} to ${domain}`);
+                    localStorage.setItem("techman_skills_data", JSON.stringify(SKILLS_DATA));
+                    alert("Skill added to GitHub successfully!");
+                } else {
+                    localStorage.setItem("techman_skills_data", JSON.stringify(SKILLS_DATA));
+                    alert("Skill added locally (preview mode)!");
+                }
+
+                initTeamSection();
+                renderAdminSkillsList();
+                skillForm.reset();
+            } catch (e) {
+                console.error(e);
+                SKILLS_DATA = originalList; // rollback
+                alert(`Failed to save skill: ${e.message}`);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
+        });
+    }
+
     // 5. Settings Configuration Form
     const settingsForm = document.getElementById("admin-settings-form");
     if (settingsForm) {
@@ -1600,6 +1729,7 @@ function openAdminDashboard() {
         modal.classList.add("open");
         renderAdminDashboardList();
         renderAdminExpertsList();
+        renderAdminSkillsList();
         renderAdminPricingList();
         renderAdminSetupList();
     }
@@ -1673,6 +1803,84 @@ function renderAdminExpertsList() {
         listContainer.innerHTML = itemsMarkup;
     }
 }
+
+function renderAdminSkillsList() {
+    const listContainer = document.getElementById("admin-skills-list");
+    if (!listContainer) return;
+
+    let itemsMarkup = "";
+    if (SKILLS_DATA) {
+        const domains = Object.keys(SKILLS_DATA);
+        domains.forEach(domain => {
+            const list = SKILLS_DATA[domain] || [];
+            list.forEach((skill, index) => {
+                itemsMarkup += `
+                    <div class="admin-item-row" data-domain="${domain}" data-index="${index}">
+                        <div class="admin-item-info">
+                            <div class="admin-item-text">
+                                <h5>${skill}</h5>
+                                <span>${domain}</span>
+                            </div>
+                        </div>
+                        <button class="btn-delete-item" onclick="deleteSkillItem('${domain}', ${index})">Delete</button>
+                    </div>
+                `;
+            });
+        });
+    }
+
+    if (!itemsMarkup) {
+        listContainer.innerHTML = `<div style="text-align: center; color: var(--text-dim); padding: 20px;">No supported skills listed.</div>`;
+    } else {
+        listContainer.innerHTML = itemsMarkup;
+    }
+}
+
+window.deleteSkillItem = async function(domain, index) {
+    if (!confirm("Are you sure you want to delete this supported skill?")) return;
+
+    const sbSettings = getSupabaseSettings();
+    const useSupabase = sbSettings.url && sbSettings.key;
+
+    const originalList = JSON.parse(JSON.stringify(SKILLS_DATA || {}));
+    const targetSkill = originalList[domain] ? originalList[domain][index] : null;
+    SKILLS_DATA[domain].splice(index, 1);
+
+    if (SKILLS_DATA[domain].length === 0) {
+        delete SKILLS_DATA[domain];
+    }
+
+    const settings = getGitHubSettings();
+    const useGitHub = settings.username && settings.repo && settings.token;
+
+    if (useSupabase && targetSkill) {
+        try {
+            await querySupabase(`skills?and=(name.eq.${targetSkill},domain.eq.${domain})`, "DELETE");
+            localStorage.setItem("techman_skills_data", JSON.stringify(SKILLS_DATA));
+            alert("Skill deleted from Supabase successfully!");
+        } catch (e) {
+            console.error(e);
+            SKILLS_DATA = originalList;
+            alert(`Failed to delete from Supabase: ${e.message}`);
+        }
+    } else if (useGitHub) {
+        try {
+            await commitToGitHub("skills.json", SKILLS_DATA, `admin: delete skill ${domain} index ${index}`);
+            localStorage.setItem("techman_skills_data", JSON.stringify(SKILLS_DATA));
+            alert("Skill deleted from repository successfully!");
+        } catch (e) {
+            console.error(e);
+            SKILLS_DATA = originalList;
+            alert(`Failed to delete skill from GitHub: ${e.message}`);
+        }
+    } else {
+        localStorage.setItem("techman_skills_data", JSON.stringify(SKILLS_DATA));
+        alert("Skill deleted locally (preview mode)!");
+    }
+
+    initTeamSection();
+    renderAdminSkillsList();
+};
 
 window.deleteGalleryItem = async function(category, id) {
     if (!confirm("Are you sure you want to delete this screenshot tile?")) return;
