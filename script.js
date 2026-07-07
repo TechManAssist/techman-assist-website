@@ -841,7 +841,7 @@ async function querySupabase(table, method = "GET", body = null) {
         throw new Error(`Supabase DB request failed: ${res.statusText}`);
     }
 
-    if (method === "DELETE" || res.status === 204) {
+    if (method === "DELETE" || res.status === 204 || res.status === 201) {
         return true;
     }
 
