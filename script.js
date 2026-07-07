@@ -3,7 +3,7 @@
    ========================================================================== */
 const CONTACT_CONFIG = {
     phone: "+16418191430",
-    email: "support@techmanassist.com",
+    email: "techmanassist@outlook.com",
     whatsappBase: "https://wa.me/16418191430"
 };
 
