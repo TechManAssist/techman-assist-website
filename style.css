@@ -1514,6 +1514,34 @@ p {
     transform: scale(1.1);
 }
 
+.instagram-floating {
+    position: fixed;
+    bottom: 105px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    color: var(--text-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    z-index: 99;
+    transition: var(--transition-normal);
+    animation: pulseGlowInsta 2s infinite;
+}
+
+.instagram-floating:hover {
+    transform: scale(1.1);
+}
+
+@keyframes pulseGlowInsta {
+    0% { box-shadow: 0 0 0 0 rgba(214, 36, 159, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(214, 36, 159, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(214, 36, 159, 0); }
+}
+
 /* ==========================================================================
    KEYFRAME ANIMATIONS
    ========================================================================== */
