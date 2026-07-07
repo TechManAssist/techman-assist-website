@@ -1495,8 +1495,8 @@ p {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     background-color: var(--color-whatsapp);
     color: var(--text-white);
     border-radius: 50%;
@@ -1516,10 +1516,10 @@ p {
 
 .instagram-floating {
     position: fixed;
-    bottom: 105px;
+    bottom: 92px;
     right: 30px;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
     color: var(--text-white);
     border-radius: 50%;
