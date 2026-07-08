@@ -652,7 +652,7 @@ p {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 14px;
     min-height: unset;
-    align-items: start;
+    align-items: stretch;
 }
 
 .expert-card {
@@ -663,6 +663,7 @@ p {
     transition: var(--transition-normal);
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     animation: fadeIn 0.4s ease forwards;
 }
 
