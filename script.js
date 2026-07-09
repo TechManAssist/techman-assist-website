@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    CONFIG & STATE MANAGEMENT
    ========================================================================== */
 const CONTACT_CONFIG = {
@@ -108,7 +108,7 @@ const DEFAULT_SETUP_STEP_DATA = [
     "step": 1,
     "title": "Chrome Remote Desktop",
     "subtitle": "Remote Screen Interface Config",
-    "text": "We utilize Chrome Remote Desktop for high-fidelity, secure visual connection. This allows our expert proxy to see your coding editor tab and write code answers in real-time with absolute precision and zero input delay.",
+    "text": "We utilize Chrome Remote Desktop for high-fidelity, secure visual connection. This allows our expert to see your coding editor tab and write code answers in real-time with absolute precision and zero input delay.",
     "items": [
       { "label": "Software Extension", "desc": "Official Chrome remote extension from Google (zero install footprint)." },
       { "label": "Stealth Settings", "desc": "Configuring layout resolutions and locking OS notification panels." },
@@ -145,7 +145,7 @@ const DEFAULT_SETUP_STEP_DATA = [
     "items": [
       { "label": "In-Ear Buds", "desc": "Flat profile wired earpieces that stay invisible to desktop webcams." },
       { "label": "Audio Splitter", "desc": "Separates meeting feeds from real-time prompt instruction signals." },
-      { "label": "Camera Alignment", "desc": "Eye-level calibration to keep focus angles natural during proxy typing." }
+      { "label": "Camera Alignment", "desc": "Eye-level calibration to keep focus angles natural during support typing." }
     ]
   }
 ];
@@ -359,7 +359,7 @@ function renderSetupStep(stepIndex) {
     const nextStepObj = sortedSteps[currentIdx + 1];
 
     const nextBtnMarkup = nextStepObj
-        ? `<button class="btn btn-primary" onclick="setNextStep(${nextStepObj.step})">Next Step →</button>`
+        ? `<button class="btn btn-primary" onclick="setNextStep(${nextStepObj.step})">Next Step â†’</button>`
         : `<a href="#contact" class="btn btn-primary">Start Stealth Setup</a>`;
 
     displayCard.style.opacity = "0.2";
@@ -442,19 +442,19 @@ function initConsultForm() {
         const serviceName = {
             practice: "Practice Session (Free)",
             mock: "Mock Interview ($80)",
-            proxy: "Interview Proxy ($130)",
+            proxy: "Interview Support ($130)",
             cert: "Certification Help ($70)",
             support: "Job Support ($750)",
             bgv: "Verification Help"
         }[service] || "General Enquiry";
 
         const textMessage =
-            `🔔 *New Consultation Request — TechMan Assist*\n\n` +
-            `👤 *Name*: ${name}\n` +
-            `📧 *Email*: ${email}\n` +
-            `📱 *Phone*: ${phone}\n` +
-            `🎯 *Service*: ${serviceName}\n` +
-            `📝 *Message*: ${details}\n\n` +
+            `ðŸ”” *New Consultation Request â€” TechMan Assist*\n\n` +
+            `ðŸ‘¤ *Name*: ${name}\n` +
+            `ðŸ“§ *Email*: ${email}\n` +
+            `ðŸ“± *Phone*: ${phone}\n` +
+            `ðŸŽ¯ *Service*: ${serviceName}\n` +
+            `ðŸ“ *Message*: ${details}\n\n` +
             `_Submitted from website contact form_`;
 
         const encodedMessage = encodeURIComponent(textMessage);
@@ -501,18 +501,18 @@ function showSuccessModal(name, waLink) {
             display: flex; align-items: center; justify-content: center;
             margin: 0 auto 20px auto; position: relative;">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#25d366" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span style="position: absolute; top: -6px; right: -6px; font-size: 1.1rem;">✅</span>
+            <span style="position: absolute; top: -6px; right: -6px; font-size: 1.1rem;">âœ…</span>
         </div>
 
         <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.5rem; color: #fff; margin-bottom: 8px; letter-spacing: -0.02em;">
             We Got Your Request!
         </h3>
         <p style="font-family: 'Outfit', sans-serif; color: #25d366; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; letter-spacing: 0.05em; text-transform: uppercase;">
-            📲 WhatsApp Opened Automatically
+            ðŸ“² WhatsApp Opened Automatically
         </p>
         <p style="font-family: 'Outfit', sans-serif; color: #94a3b8; font-size: 0.92rem; margin-bottom: 28px; line-height: 1.7;">
             Hi <strong style="color: #f8fafc;">${name}</strong>, your details have been sent to our coordinator via WhatsApp.
-            We'll respond within <strong style="color: #f8fafc;">2 hours</strong> to confirm your booking. 🚀
+            We'll respond within <strong style="color: #f8fafc;">2 hours</strong> to confirm your booking. ðŸš€
         </p>
 
         <div style="display: flex; flex-direction: column; gap: 10px;">
@@ -523,7 +523,7 @@ function showSuccessModal(name, waLink) {
                 cursor: pointer; font-family: 'Outfit', sans-serif;
                 box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
                 transition: all 0.2s;
-            ">Got it, Close ✓</button>
+            ">Got it, Close âœ“</button>
 
             <a href="${waLink}" target="_blank" rel="noopener" id="wa-modal-btn" style="
                 display: inline-flex; align-items: center; justify-content: center;
@@ -1807,7 +1807,7 @@ function renderAdminExpertsList() {
                     <div class="admin-item-info">
                         <div class="admin-item-text">
                             <h5>${exp.name}</h5>
-                            <span>${domain} — ${exp.role} (${exp.company})</span>
+                            <span>${domain} â€” ${exp.role} (${exp.company})</span>
                         </div>
                     </div>
                     <button class="btn-delete-item" onclick="deleteExpertItem('${domain}', ${index})">Delete</button>
@@ -2008,7 +2008,7 @@ function renderPricingPlans() {
         const buttonText = {
             "plan-practice": "Test Setup",
             "plan-mock": "Book Session",
-            "plan-proxy": "Hire Proxy",
+            "plan-proxy": "Hire Support",
             "plan-cert": "Pass Certification",
             "plan-support": "Select Plan"
         }[plan.id] || "Select Plan";
@@ -2197,10 +2197,10 @@ window.deleteSetupStep = async function(stepNum) {
    WEATHER-BASED AUTOMATIC THEME SWITCHER
    ========================================================================== */
 const WEATHER_THEMES = [
-    { name: "default", icon: "🌌", label: "Default" },
-    { name: "cold", icon: "❄️", label: "Cold Theme" },
-    { name: "spring", icon: "🌸", label: "Spring Theme" },
-    { name: "summer", icon: "☀️", label: "Summer Theme" }
+    { name: "default", icon: "ðŸŒŒ", label: "Default" },
+    { name: "cold", icon: "â„ï¸", label: "Cold Theme" },
+    { name: "spring", icon: "ðŸŒ¸", label: "Spring Theme" },
+    { name: "summer", icon: "â˜€ï¸", label: "Summer Theme" }
 ];
 let activeThemeIndex = 0;
 
@@ -2241,16 +2241,16 @@ function initWeatherTheme() {
                         const temp = weatherData.current_weather.temperature;
                         
                         let detectedTheme = "spring";
-                        let icon = "🌸";
+                        let icon = "ðŸŒ¸";
                         if (temp < 15) {
                             detectedTheme = "cold";
-                            icon = "❄️";
+                            icon = "â„ï¸";
                         } else if (temp > 25) {
                             detectedTheme = "summer";
-                            icon = "☀️";
+                            icon = "â˜€ï¸";
                         }
                         
-                        applyTheme(detectedTheme, `${temp}°C Local`, icon);
+                        applyTheme(detectedTheme, `${temp}Â°C Local`, icon);
                         activeThemeIndex = WEATHER_THEMES.findIndex(t => t.name === detectedTheme);
                     } else {
                         fallbackSeasonalTheme("API Error");
@@ -2272,24 +2272,24 @@ function initWeatherTheme() {
 function fallbackSeasonalTheme(reason) {
     const month = new Date().getMonth(); // 0 to 11
     let detectedTheme = "default";
-    let icon = "🌌";
+    let icon = "ðŸŒŒ";
     let label = "Default";
 
     if (month === 11 || month === 0 || month === 1) { // Dec, Jan, Feb
         detectedTheme = "cold";
-        icon = "❄️";
+        icon = "â„ï¸";
         label = "Cold Mode";
     } else if (month >= 2 && month <= 4) { // Mar, Apr, May
         detectedTheme = "spring";
-        icon = "🌸";
+        icon = "ðŸŒ¸";
         label = "Spring Mode";
     } else if (month >= 5 && month <= 7) { // Jun, Jul, Aug
         detectedTheme = "summer";
-        icon = "☀️";
+        icon = "â˜€ï¸";
         label = "Summer Mode";
     } else { // Sep, Oct, Nov
         detectedTheme = "spring"; // Autumn
-        icon = "🍁";
+        icon = "ðŸ";
         label = "Autumn Mode";
     }
 
@@ -2312,6 +2312,8 @@ function applyTheme(themeClass, displayLabel, icon) {
     if (iconEl) iconEl.textContent = icon;
     if (tempEl) tempEl.textContent = displayLabel;
 }
+
+
 
 
 
