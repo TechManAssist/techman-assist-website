@@ -7,6 +7,13 @@ const CONTACT_CONFIG = {
     whatsappBase: "https://wa.me/16418191430"
 };
 
+// Default Supabase Cloud Database fallback settings (so visitors don't have to enter credentials)
+const SUPABASE_CONFIG = {
+    url: "", // <-- Put your Supabase Project URL here (e.g. https://xyz.supabase.co)
+    key: ""  // <-- Put your Supabase Public Anon Key here
+};
+
+
 /* ==========================================================================
    EMAILJS CONFIG — Replace placeholders with your EmailJS credentials
    Sign up free at: https://www.emailjs.com
@@ -796,8 +803,8 @@ function getGitHubSettings() {
 
 function getSupabaseSettings() {
     return {
-        url: localStorage.getItem("supabase_url") || "",
-        key: localStorage.getItem("supabase_key") || ""
+        url: localStorage.getItem("supabase_url") || SUPABASE_CONFIG.url || "",
+        key: localStorage.getItem("supabase_key") || SUPABASE_CONFIG.key || ""
     };
 }
 
