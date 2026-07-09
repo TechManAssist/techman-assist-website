@@ -462,7 +462,7 @@ function initConsultForm() {
             proxy: "Interview Support ($130)",
             cert: "Certification Help ($70)",
             support: "Job Support ($750)",
-            bgv: "Verification Help"
+            bgv: "Verification & Certifications (Pay Later)"
         }[service] || "General Enquiry";
 
         const textMessage =
