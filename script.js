@@ -1177,7 +1177,11 @@ async function initDatabaseEngine() {
     }
 
     if (!pricingLoaded) {
-        const localPricing = localStorage.getItem("techman_pricing_data");
+        let localPricing = localStorage.getItem("techman_pricing_data");
+        if (localPricing && (localPricing.includes('"price":"70"') || localPricing.includes('"title":"Interview Proxy"'))) {
+            localStorage.removeItem("techman_pricing_data");
+            localPricing = null;
+        }
         if (localPricing) {
             PRICING_DATA = JSON.parse(localPricing);
         } else {

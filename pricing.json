@@ -29,31 +29,32 @@
   },
   {
     "id": "plan-proxy",
-    "title": "Interview Proxy",
+    "title": "Interview Support",
     "price": "130",
     "period": "/ session",
-    "desc": "Stealth proxy support. An elite tech expert remotely logs in and passes your live round coding/design loops.",
+    "desc": "Secure support. An elite tech expert remotely logs in and passes your live round coding/design loops.",
     "benefits": [
       "Secure Remote Desktop settings",
       "Live discrete audio prompt routing",
       "98%+ Verified Passing rate"
     ],
     "popular": true,
-    "whatsapp_text": "Hi, I'm interested in your Interview Proxy services ($130)."
+    "whatsapp_text": "Hi, I'm interested in your Interview Support services ($130)."
   },
   {
     "id": "plan-cert",
     "title": "Certification Help",
-    "price": "70",
+    "price": "80",
     "period": "/ cert",
-    "desc": "Pass your official AWS, Azure, and Google Cloud certification exams with guaranteed high scores.",
+    "desc": "Pass First, Pay Later. Guaranteed passing scores on AWS, Azure, GCP, Salesforce, Scrum, and PMP credentials. Pay absolutely nothing until you receive your 100% passing results or clean reports.",
     "benefits": [
-      "AWS, Azure & Google certifications",
-      "Guaranteed passing (100% refund)",
-      "Remote exam stealth setups"
+      "AWS, Azure & GCP Certifications",
+      "Salesforce, ServiceNow, PMP & Scrum",
+      "Employment & Reference Verification",
+      "100% Pass Guarantee — Pay After Success"
     ],
     "popular": false,
-    "whatsapp_text": "Hi, I'm interested in getting Certification Help for AWS/Azure/Google ($70)."
+    "whatsapp_text": "Hi, I'm interested in getting Certification Help ($80 - Pass First, Pay Later)."
   },
   {
     "id": "plan-support",
