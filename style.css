@@ -1645,6 +1645,35 @@ p {
         display: flex;
     }
 
+    .nav-container {
+        padding: 12px 16px;
+        gap: 8px;
+        overflow: hidden;
+    }
+
+    .logo {
+        font-size: 1.15rem;
+        flex-shrink: 0;
+        min-width: 0;
+    }
+
+    .nav-actions {
+        gap: 8px;
+        flex-shrink: 0;
+        min-width: 0;
+    }
+
+    /* On mobile: hide the weather label text, show only the icon */
+    .weather-widget #weather-temp {
+        display: none;
+    }
+
+    .weather-widget {
+        padding: 6px 10px;
+        gap: 0;
+        min-width: unset;
+    }
+
     .nav-menu {
         position: fixed;
         top: 80px;
