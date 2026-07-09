@@ -7,6 +7,23 @@ const CONTACT_CONFIG = {
     whatsappBase: "https://wa.me/16418191430"
 };
 
+/* ==========================================================================
+   EMAILJS CONFIG — Replace placeholders with your EmailJS credentials
+   Sign up free at: https://www.emailjs.com
+   ========================================================================== */
+const EMAILJS_CONFIG = {
+    publicKey:   "YOUR_PUBLIC_KEY",     // EmailJS Dashboard → Account → Public Key
+    serviceId:   "YOUR_SERVICE_ID",     // EmailJS Dashboard → Email Services → Service ID
+    templateId:  "YOUR_TEMPLATE_ID"     // EmailJS Dashboard → Email Templates → Template ID
+};
+
+// Initialize EmailJS
+(function() {
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init({ publicKey: EMAILJS_CONFIG.publicKey });
+    }
+})();
+
 // State Variables
 let currentDomain = "SDE";
 let currentSetupStep = 1;
@@ -463,12 +480,45 @@ function initConsultForm() {
         // 2. Auto-open WhatsApp immediately so message arrives to admin instantly
         window.open(waLink, "_blank", "noopener,noreferrer");
 
-        // 3. Show success confirmation modal
+        // 3. Send email notification via EmailJS (silent background send)
+        sendEmailNotification({ name, email, phone, serviceName, details });
+
+        // 4. Show success confirmation modal
         showSuccessModal(name, waLink);
 
-        // 4. Clear the form
+        // 5. Clear the form
         form.reset();
     });
+}
+
+/* Send email notification to admin via EmailJS */
+function sendEmailNotification({ name, email, phone, serviceName, details }) {
+    if (typeof emailjs === 'undefined') {
+        console.warn('EmailJS not loaded — skipping email notification.');
+        return;
+    }
+    if (EMAILJS_CONFIG.publicKey === 'YOUR_PUBLIC_KEY') {
+        console.info('EmailJS not configured yet — skipping email notification.');
+        return;
+    }
+
+    const templateParams = {
+        from_name:    name,
+        from_email:   email,
+        phone:        phone,
+        service_name: serviceName,
+        message:      details,
+        to_email:     CONTACT_CONFIG.email,
+        reply_to:     email
+    };
+
+    emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, templateParams)
+        .then(() => {
+            console.log('Email notification sent successfully.');
+        })
+        .catch((err) => {
+            console.error('EmailJS send failed:', err);
+        });
 }
 
 function showSuccessModal(name, waLink) {
