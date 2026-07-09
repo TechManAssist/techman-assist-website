@@ -9,8 +9,8 @@ const CONTACT_CONFIG = {
 
 // Default Supabase Cloud Database fallback settings (so visitors don't have to enter credentials)
 const SUPABASE_CONFIG = {
-    url: "", // <-- Put your Supabase Project URL here (e.g. https://xyz.supabase.co)
-    key: ""  // <-- Put your Supabase Public Anon Key here
+    url: "https://otlgcerhbqwfcsddftcl.supabase.co", // <-- Put your Supabase Project URL here (e.g. https://xyz.supabase.co)
+    key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im90bGdjZXJoYnF3ZmNzZGRmdGNsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM0MjU5MDMsImV4cCI6MjA5OTAwMTkwM30.gaCf4U_o6lmN9ZKw0J4vzaV_N9Kz0Gng391Bx8_tTgo"  // <-- Put your Supabase Public Anon Key here
 };
 
 
