@@ -1728,6 +1728,10 @@ p {
 }
 
 @media (max-width: 768px) {
+    html {
+        scroll-padding-top: 70px;
+    }
+
     section {
         padding: 70px 0;
     }
