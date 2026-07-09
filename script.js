@@ -432,11 +432,11 @@ function initConsultForm() {
         e.preventDefault();
 
         // Extract Form Values
-        const name = document.getElementById("form-name").value;
-        const email = document.getElementById("form-email").value;
-        const phone = document.getElementById("form-phone").value;
+        const name = document.getElementById("form-name").value.trim();
+        const email = document.getElementById("form-email").value.trim();
+        const phone = document.getElementById("form-phone").value.trim();
         const service = document.getElementById("form-service").value;
-        const details = document.getElementById("form-details").value;
+        const details = document.getElementById("form-details").value.trim();
 
         // 1. Construct WhatsApp Pre-filled message
         const serviceName = {
@@ -446,22 +446,27 @@ function initConsultForm() {
             cert: "Certification Help ($70)",
             support: "Job Support ($750)",
             bgv: "Verification Help"
-        }[service] || "Services";
+        }[service] || "General Enquiry";
 
-        const textMessage = `Hi TechMan Assist, I am interested in booking a consultation.\n\n` +
-                            `*Name*: ${name}\n` +
-                            `*Email*: ${email}\n` +
-                            `*Phone*: ${phone}\n` +
-                            `*Selected Service*: ${serviceName}\n` +
-                            `*Details*: ${details}`;
+        const textMessage =
+            `🔔 *New Consultation Request — TechMan Assist*\n\n` +
+            `👤 *Name*: ${name}\n` +
+            `📧 *Email*: ${email}\n` +
+            `📱 *Phone*: ${phone}\n` +
+            `🎯 *Service*: ${serviceName}\n` +
+            `📝 *Message*: ${details}\n\n` +
+            `_Submitted from website contact form_`;
 
         const encodedMessage = encodeURIComponent(textMessage);
         const waLink = `${CONTACT_CONFIG.whatsappBase}?text=${encodedMessage}`;
 
-        // 2. Render visually attractive glass success overlay modal
+        // 2. Auto-open WhatsApp immediately so message arrives to admin instantly
+        window.open(waLink, "_blank", "noopener,noreferrer");
+
+        // 3. Show success confirmation modal
         showSuccessModal(name, waLink);
 
-        // 3. Clear the form
+        // 4. Clear the form
         form.reset();
     });
 }
@@ -469,76 +474,90 @@ function initConsultForm() {
 function showSuccessModal(name, waLink) {
     // Create overlay container
     const overlay = document.createElement("div");
-    overlay.style.position = "fixed";
-    overlay.style.top = "0";
-    overlay.style.left = "0";
-    overlay.style.width = "100%";
-    overlay.style.height = "100%";
-    overlay.style.backgroundColor = "rgba(8, 9, 14, 0.9)";
-    overlay.style.backdropFilter = "blur(12px)";
-    overlay.style.display = "flex";
-    overlay.style.alignItems = "center";
-    overlay.style.justifyContent = "center";
-    overlay.style.zIndex = "1000";
-    overlay.style.opacity = "0";
-    overlay.style.transition = "opacity 0.3s ease";
+    overlay.style.cssText = `
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background-color: rgba(8, 9, 14, 0.92);
+        backdrop-filter: blur(14px);
+        display: flex; align-items: center; justify-content: center;
+        z-index: 1000; opacity: 0; transition: opacity 0.3s ease;
+    `;
 
     // Create dialog content
     const dialog = document.createElement("div");
-    dialog.style.background = "#0e111a";
-    dialog.style.border = "1.5px solid rgba(99, 102, 241, 0.3)";
-    dialog.style.borderRadius = "20px";
-    dialog.style.padding = "48px 32px";
-    dialog.style.maxWidth = "480px";
-    dialog.style.width = "90%";
-    dialog.style.textAlign = "center";
-    dialog.style.boxShadow = "0 10px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(79, 70, 229, 0.15)";
-    dialog.style.transform = "scale(0.9)";
-    dialog.style.transition = "transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
+    dialog.style.cssText = `
+        background: linear-gradient(145deg, #0e111a, #121828);
+        border: 1.5px solid rgba(37, 211, 102, 0.3);
+        border-radius: 24px; padding: 48px 36px;
+        max-width: 460px; width: 90%; text-align: center;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(37, 211, 102, 0.08);
+        transform: scale(0.88) translateY(20px);
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    `;
 
     dialog.innerHTML = `
-        <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(37, 211, 102, 0.1); border: 1px solid rgba(37, 211, 102, 0.3); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px auto;">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#25d366" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <div style="width: 72px; height: 72px; border-radius: 50%;
+            background: rgba(37, 211, 102, 0.12);
+            border: 1.5px solid rgba(37, 211, 102, 0.4);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px auto; position: relative;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#25d366" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span style="position: absolute; top: -6px; right: -6px; font-size: 1.1rem;">✅</span>
         </div>
-        <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.5rem; color: #fff; margin-bottom: 12px;">Request Logged Successfully!</h3>
-        <p style="font-family: 'Outfit', sans-serif; color: #94a3b8; font-size: 0.95rem; margin-bottom: 32px; line-height: 1.6;">Thank you ${name}, your consultation details are compiled. Click below to instantly connect with our coordinator on WhatsApp and finalize booking details.</p>
-        <div style="display: flex; flex-direction: column; gap: 12px;">
-            <a href="${waLink}" target="_blank" rel="noopener" id="wa-modal-btn" style="display: inline-flex; align-items: center; justify-content: center; background: #25d366; color: #fff; padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; gap: 8px; box-shadow: 0 0 15px rgba(37, 211, 102, 0.25); transition: all 0.2s;">
-                <span>Send via WhatsApp</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.97C16.59 2.016 14.11 1.008 11.48 1.008c-5.442 0-9.87 4.372-9.874 9.802-.001 1.77.464 3.5 1.349 5.022L1.93 22.025l6.347-1.656c1.554.848 3.197 1.285 4.845 1.285zm12.336-7.85c-.32-.16-1.89-.933-2.185-1.04-.294-.108-.508-.16-.721.16-.214.32-.828 1.04-.1.16s-.535-.246-.906-.324c-.267-.056-.475-.24-.627-.478-.146-.226-.148-.567.042-.907.037-.066.079-.133.125-.2.247-.36.4-.64.444-.805.043-.165.022-.307-.01-.387-.033-.08-.321-.773-.44-1.058-.116-.28-.236-.241-.321-.245-.083-.004-.178-.004-.273-.004-.096 0-.251.036-.383.18-.132.144-.504.493-.504 1.201 0 .708.515 1.393.587 1.488.072.096 1.014 1.55 2.457 2.172.343.148.611.237.82.303.345.11.66.094.908.057.277-.041.89-.364 1.016-.716.126-.352.126-.654.088-.717-.038-.063-.14-.1-.46-.26z"/></svg>
+
+        <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.5rem; color: #fff; margin-bottom: 8px; letter-spacing: -0.02em;">
+            We Got Your Request!
+        </h3>
+        <p style="font-family: 'Outfit', sans-serif; color: #25d366; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; letter-spacing: 0.05em; text-transform: uppercase;">
+            📲 WhatsApp Opened Automatically
+        </p>
+        <p style="font-family: 'Outfit', sans-serif; color: #94a3b8; font-size: 0.92rem; margin-bottom: 28px; line-height: 1.7;">
+            Hi <strong style="color: #f8fafc;">${name}</strong>, your details have been sent to our coordinator via WhatsApp.
+            We'll respond within <strong style="color: #f8fafc;">2 hours</strong> to confirm your booking. 🚀
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+            <button id="close-modal-btn" style="
+                background: linear-gradient(135deg, #4f46e5, #6366f1);
+                color: #fff; border: none; padding: 14px 28px;
+                border-radius: 10px; font-weight: 600; font-size: 0.95rem;
+                cursor: pointer; font-family: 'Outfit', sans-serif;
+                box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
+                transition: all 0.2s;
+            ">Got it, Close ✓</button>
+
+            <a href="${waLink}" target="_blank" rel="noopener" id="wa-modal-btn" style="
+                display: inline-flex; align-items: center; justify-content: center;
+                gap: 6px; color: #25d366; font-size: 0.82rem; font-weight: 500;
+                padding: 8px; border-radius: 8px;
+                border: 1px solid rgba(37, 211, 102, 0.15);
+                background: rgba(37, 211, 102, 0.04);
+                font-family: 'Outfit', sans-serif; transition: all 0.2s;
+            ">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.97C16.59 2.016 14.11 1.008 11.48 1.008c-5.442 0-9.87 4.372-9.874 9.802-.001 1.77.464 3.5 1.349 5.022L1.93 22.025l6.347-1.656c1.554.848 3.197 1.285 4.845 1.285zm12.336-7.85c-.32-.16-1.89-.933-2.185-1.04-.294-.108-.508-.16-.721.16-.214.32-.828 1.04-.1.16s-.535-.246-.906-.324c-.267-.056-.475-.24-.627-.478-.146-.226-.148-.567.042-.907.037-.066.079-.133.125-.2.247-.36.4-.64.444-.805.043-.165.022-.307-.01-.387-.033-.08-.321-.773-.44-1.058-.116-.28-.236-.241-.321-.245-.083-.004-.178-.004-.273-.004-.096 0-.251.036-.383.18-.132.144-.504.493-.504 1.201 0 .708.515 1.393.587 1.488.072.096 1.014 1.55 2.457 2.172.343.148.611.237.82.303.345.11.66.094.908.057.277-.041.89-.364 1.016-.716.126-.352.126-.654.088-.717-.038-.063-.14-.1-.46-.26z"/></svg>
+                WhatsApp didn't open? Click here to retry
             </a>
-            <button id="close-modal-btn" style="background: rgba(255, 255, 255, 0.03); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; font-weight: 500; font-size: 0.9rem; cursor: pointer; transition: all 0.2s;">Dismiss</button>
         </div>
     `;
 
     document.body.appendChild(overlay);
     overlay.appendChild(dialog);
 
-    // Trigger animation frame for CSS transitions
+    // Animate in
     requestAnimationFrame(() => {
         overlay.style.opacity = "1";
-        dialog.style.transform = "scale(1)";
+        dialog.style.transform = "scale(1) translateY(0)";
     });
-
-    // Button click listeners
-    const dismissBtn = dialog.querySelector("#close-modal-btn");
-    const waBtn = dialog.querySelector("#wa-modal-btn");
 
     const closeModal = () => {
         overlay.style.opacity = "0";
-        dialog.style.transform = "scale(0.9)";
-        setTimeout(() => {
-            overlay.remove();
-        }, 300);
+        dialog.style.transform = "scale(0.9) translateY(10px)";
+        setTimeout(() => overlay.remove(), 300);
     };
 
-    dismissBtn.addEventListener("click", closeModal);
-    
-    waBtn.addEventListener("click", () => {
-        // Redirection executes in tab, close parent modal shortly
-        setTimeout(closeModal, 1000);
+    dialog.querySelector("#close-modal-btn").addEventListener("click", closeModal);
+    dialog.querySelector("#wa-modal-btn").addEventListener("click", () => {
+        setTimeout(closeModal, 800);
     });
-
     overlay.addEventListener("click", (e) => {
         if (e.target === overlay) closeModal();
     });
