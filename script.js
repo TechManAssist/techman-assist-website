@@ -962,7 +962,9 @@ async function querySupabase(table, method = "GET", body = null) {
 
     const res = await fetch(url, options);
     if (!res.ok) {
-        throw new Error(`Supabase DB request failed: ${res.statusText}`);
+        const errInfo = await res.json().catch(() => null);
+        const errMsg = errInfo ? (errInfo.message || errInfo.error || JSON.stringify(errInfo)) : `HTTP ${res.status} ${res.statusText || ""}`.trim();
+        throw new Error(`Supabase DB request failed: ${errMsg}`);
     }
 
     if (method === "DELETE" || res.status === 204 || res.status === 201) {
@@ -991,7 +993,9 @@ async function uploadToSupabaseStorage(blob, filename) {
     });
 
     if (!res.ok) {
-        throw new Error(`Supabase Storage upload failed: ${res.statusText}`);
+        const errInfo = await res.json().catch(() => null);
+        const errMsg = errInfo ? (errInfo.message || errInfo.error || JSON.stringify(errInfo)) : `HTTP ${res.status} ${res.statusText || ""}`.trim();
+        throw new Error(`Supabase Storage upload failed: ${errMsg}`);
     }
 
     return `${baseUrl}/storage/v1/object/public/gallery/screenshots/${filename}`;
