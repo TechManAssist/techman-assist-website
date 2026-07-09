@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    CONFIG & STATE MANAGEMENT
    ========================================================================== */
 const CONTACT_CONFIG = {
@@ -449,13 +449,13 @@ function initConsultForm() {
         }[service] || "General Enquiry";
 
         const textMessage =
-            `🔔 *New Consultation Request — TechMan Assist*\n\n` +
-            `👤 *Name*: ${name}\n` +
-            `📧 *Email*: ${email}\n` +
-            `📱 *Phone*: ${phone}\n` +
-            `🎯 *Service*: ${serviceName}\n` +
-            `📝 *Message*: ${details}\n\n` +
-            `_Submitted from website contact form_`;
+            `*[New Consultation Request - TechMan Assist]*\n\n` +
+            `*Name*: ${name}\n` +
+            `*Email*: ${email}\n` +
+            `*Phone*: ${phone}\n` +
+            `*Service*: ${serviceName}\n` +
+            `*Message*: ${details}\n\n` +
+            `_Sent via website contact form_`;
 
         const encodedMessage = encodeURIComponent(textMessage);
         const waLink = `${CONTACT_CONFIG.whatsappBase}?text=${encodedMessage}`;
