@@ -1825,7 +1825,9 @@ function renderAdminDashboardList() {
             certificates: "Certification"
         }[cat];
 
-        list.forEach(item => {
+        list.forEach((item, index) => {
+            const isFirst = index === 0;
+            const isLast = index === list.length - 1;
             itemsMarkup += `
                 <div class="admin-item-row" data-id="${item.id}">
                     <div class="admin-item-info">
@@ -1835,7 +1837,11 @@ function renderAdminDashboardList() {
                             <span>${catName}</span>
                         </div>
                     </div>
-                    <button class="btn-delete-item" onclick="deleteGalleryItem('${cat}', '${item.id}')">Delete</button>
+                    <div class="admin-item-actions" style="display: flex; gap: 6px; align-items: center;">
+                        <button class="btn-order-item" onclick="moveGalleryItem('${cat}', '${item.id}', 'up')" ${isFirst ? 'disabled style="opacity: 0.35; cursor: not-allowed;"' : ''}>↑</button>
+                        <button class="btn-order-item" onclick="moveGalleryItem('${cat}', '${item.id}', 'down')" ${isLast ? 'disabled style="opacity: 0.35; cursor: not-allowed;"' : ''}>↓</button>
+                        <button class="btn-delete-item" onclick="deleteGalleryItem('${cat}', '${item.id}')">Delete</button>
+                    </div>
                 </div>
             `;
         });
@@ -2368,6 +2374,58 @@ function applyTheme(themeClass, displayLabel, icon) {
     if (iconEl) iconEl.textContent = icon;
     if (tempEl) tempEl.textContent = displayLabel;
 }
+
+window.moveGalleryItem = async function(category, id, direction) {
+    const list = GALLERY_DATA[category];
+    if (!list) return;
+
+    const index = list.findIndex(item => item.id === id);
+    if (index === -1) return;
+
+    const newIndex = direction === "up" ? index - 1 : index + 1;
+    if (newIndex < 0 || newIndex >= list.length) return;
+
+    const temp = list[index];
+    list[index] = list[newIndex];
+    list[newIndex] = temp;
+
+    const sbSettings = getSupabaseSettings();
+    const useSupabase = sbSettings.url && sbSettings.key;
+    const settings = getGitHubSettings();
+    const useGitHub = settings.username && settings.repo && settings.token;
+
+    if (useSupabase) {
+        try {
+            await querySupabase(`gallery?category=eq.${category}`, "DELETE");
+            for (const item of list) {
+                await querySupabase("gallery", "POST", {
+                    id: item.id,
+                    category: category,
+                    title: item.title,
+                    desc: item.desc,
+                    img: item.img
+                });
+            }
+            localStorage.setItem("techman_gallery_data", JSON.stringify(GALLERY_DATA));
+        } catch (e) {
+            console.error(e);
+            alert(`Failed to sync reordering with Supabase: ${e.message}`);
+        }
+    } else if (useGitHub) {
+        try {
+            await commitToGitHub("gallery.json", GALLERY_DATA, `admin: reorder gallery item ${id} ${direction}`);
+            localStorage.setItem("techman_gallery_data", JSON.stringify(GALLERY_DATA));
+        } catch (e) {
+            console.error(e);
+            alert(`Failed to sync with GitHub: ${e.message}`);
+        }
+    } else {
+        localStorage.setItem("techman_gallery_data", JSON.stringify(GALLERY_DATA));
+    }
+
+    renderGallery(currentGalleryCategory);
+    renderAdminDashboardList();
+};
 
 
 

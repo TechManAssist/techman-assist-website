@@ -898,16 +898,18 @@ p {
 }
 
 .team-tabs-container::-webkit-scrollbar {
-    height: 4px;
+    height: 6px;
 }
 
 .team-tabs-container::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 3px;
 }
 
 .team-tabs-container::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 4px;
+    background: linear-gradient(90deg, var(--color-secondary-light) 0%, var(--color-primary-light) 100%);
+    border-radius: 3px;
+    box-shadow: 0 0 6px rgba(34, 211, 238, 0.3);
 }
 
 .team-tabs {
@@ -2084,16 +2086,26 @@ p {
     display: flex;
     gap: 24px;
     overflow-x: auto;
-    padding-bottom: 12px;
+    padding-bottom: 20px;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     min-height: 250px;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none;  /* IE and Edge */
 }
 
 .gallery-grid::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+    display: block;
+    height: 6px;
+}
+
+.gallery-grid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 3px;
+}
+
+.gallery-grid::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, var(--color-secondary-light) 0%, var(--color-primary-light) 100%);
+    border-radius: 3px;
+    box-shadow: 0 0 6px rgba(34, 211, 238, 0.3);
 }
 
 .gallery-card {
@@ -2392,6 +2404,28 @@ p {
     color: var(--text-white);
     border-color: #ef4444;
     box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+}
+
+.btn-order-item {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
+    color: var(--text-white);
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.btn-order-item:hover:not(:disabled) {
+    background: var(--color-primary-light);
+    border-color: var(--color-primary-light);
+    box-shadow: 0 0 8px rgba(99, 102, 241, 0.3);
 }
 
 .admin-items-list::-webkit-scrollbar {
