@@ -12,9 +12,9 @@ const CONTACT_CONFIG = {
    Sign up free at: https://www.emailjs.com
    ========================================================================== */
 const EMAILJS_CONFIG = {
-    publicKey:   "YOUR_PUBLIC_KEY",     // EmailJS Dashboard → Account → Public Key
-    serviceId:   "YOUR_SERVICE_ID",     // EmailJS Dashboard → Email Services → Service ID
-    templateId:  "YOUR_TEMPLATE_ID"     // EmailJS Dashboard → Email Templates → Template ID
+    publicKey:   "VAbHRFo64xDc0qJhZ",
+    serviceId:   "service_g4m3415",
+    templateId:  "template_lb7wm88"
 };
 
 // Initialize EmailJS
