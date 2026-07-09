@@ -512,71 +512,8 @@
                     <p>Hear from clients who transitioned from interview stress to high-paying tech careers with our remote assistance.</p>
                 </div>
 
-                <div class="reviews-grid">
-                    <!-- Review 1 -->
-                    <div class="review-card">
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                        <p class="review-text">"TechMan Assist took all the anxiety out of the interview loop. The remote screen configuration was perfectly stealthy, and the expert coding in real-time was flawless. Passed Amazon SDE-2 loop effortlessly!"</p>
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">RK</div>
-                            <div>
-                                <h4 class="reviewer-name">Rajesh K.</h4>
-                                <span class="reviewer-title">Senior SDE @ Amazon</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Review 2 -->
-                    <div class="review-card">
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                        <p class="review-text">"As a fresher, finding a job was difficult. TechMan Assist helped me clear the Microsoft coding rounds. Their post-placement job support has been a lifesaver in my first few months on the team!"</p>
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">PM</div>
-                            <div>
-                                <h4 class="reviewer-name">Priya M.</h4>
-                                <span class="reviewer-title">SDE-1 @ Microsoft</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Review 3 -->
-                    <div class="review-card">
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                        <p class="review-text">"I wanted to shift from QA to DevOps. They matched me with a Lead SRE who aced the systems engineering interview. I highly recommend their BG verification tips too. Worth every penny."</p>
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">AS</div>
-                            <div>
-                                <h4 class="reviewer-name">Anil S.</h4>
-                                <span class="reviewer-title">DevOps Engineer @ Google</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Review 4 -->
-                    <div class="review-card">
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                        <p class="review-text">"Cleared my Business Analyst interview at Deloitte. The TechMan Assist team did an amazing job guiding me through SQL databases, Tableau, and business case scenarios. The preparation gave me massive confidence."</p>
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">SP</div>
-                            <div>
-                                <h4 class="reviewer-name">Shreya P.</h4>
-                                <span class="reviewer-title">Business Analyst @ Deloitte</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Review 5 -->
-                    <div class="review-card">
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                        <p class="review-text">"The Scrum Master and Healthcare PM certification prep was exactly what I needed. Outstanding, responsive support that helped me clear my credentials and secure a role at Optum."</p>
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">VR</div>
-                            <div>
-                                <h4 class="reviewer-name">Vikram R.</h4>
-                                <span class="reviewer-title">Project Manager @ Optum</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="reviews-grid" id="reviews-grid">
+                    <!-- Dynamically populated from script.js -->
                 </div>
             </div>
         </section>
@@ -942,6 +879,7 @@
                 <button class="admin-tab-btn" data-target="tab-experts">Support Experts</button>
                 <button class="admin-tab-btn" data-target="tab-pricing">Pricing Plans</button>
                 <button class="admin-tab-btn" data-target="tab-setup">Setup Guide</button>
+                <button class="admin-tab-btn" data-target="tab-reviews">Success Stories</button>
                 <button class="admin-tab-btn" data-target="tab-settings">Cloud Settings</button>
             </div>
 
@@ -1210,6 +1148,49 @@
                         <h4>Current Setup Steps</h4>
                         <div class="admin-items-list" id="admin-setup-list">
                             <!-- Dynamically generated list of setup steps with delete button -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 6: Success Stories (Reviews) -->
+            <div id="tab-reviews" class="admin-tab-content">
+                <div class="admin-dashboard-layout">
+                    <!-- Left: Add success story form -->
+                    <div class="admin-upload-form-panel">
+                        <h4>Add Success Story</h4>
+                        <form id="admin-review-form">
+                            <div class="form-group">
+                                <label for="review-name">Reviewer Name</label>
+                                <input type="text" id="review-name" placeholder="e.g. Rajesh K." required>
+                            </div>
+                            <div class="form-group">
+                                <label for="review-role">Reviewer Title / Role</label>
+                                <input type="text" id="review-role" placeholder="e.g. Senior SDE @ Amazon" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="review-stars">Rating (Stars)</label>
+                                <select id="review-stars" required style="width: 100%; padding: 10px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 6px; color: #fff;">
+                                    <option value="5" selected>⭐⭐⭐⭐⭐ (5 Stars)</option>
+                                    <option value="4">⭐⭐⭐⭐ (4 Stars)</option>
+                                    <option value="3">⭐⭐⭐ (3 Stars)</option>
+                                    <option value="2">⭐⭐ (2 Stars)</option>
+                                    <option value="1">⭐ (1 Star)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="review-text">Review Testimonial Text</label>
+                                <textarea id="review-text" rows="4" placeholder="Type the candidate's success story/feedback here..." required style="width: 100%; padding: 10px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 6px; color: #fff; font-family: inherit; resize: vertical;"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block" style="margin-top: 16px;">Add Success Story</button>
+                        </form>
+                    </div>
+
+                    <!-- Right: Manage reviews list -->
+                    <div class="admin-manage-panel">
+                        <h4>Current Success Stories</h4>
+                        <div class="admin-items-list" id="admin-reviews-list">
+                            <!-- Dynamically generated list of reviews with delete/reorder buttons -->
                         </div>
                     </div>
                 </div>

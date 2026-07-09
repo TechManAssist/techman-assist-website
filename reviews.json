@@ -1,0 +1,42 @@
+[
+  {
+    "id": "rev-1",
+    "name": "Rajesh K.",
+    "role": "Senior SDE @ Amazon",
+    "avatar": "RK",
+    "stars": 5,
+    "text": "TechMan Assist took all the anxiety out of the interview loop. The remote screen configuration was perfectly stealthy, and the expert coding in real-time was flawless. Passed Amazon SDE-2 loop effortlessly!"
+  },
+  {
+    "id": "rev-2",
+    "name": "Priya M.",
+    "role": "SDE-1 @ Microsoft",
+    "avatar": "PM",
+    "stars": 5,
+    "text": "As a fresher, finding a job was difficult. TechMan Assist helped me clear the Microsoft coding rounds. Their post-placement job support has been a lifesaver in my first few months on the team!"
+  },
+  {
+    "id": "rev-3",
+    "name": "Anil S.",
+    "role": "DevOps Engineer @ Google",
+    "avatar": "AS",
+    "stars": 5,
+    "text": "I wanted to shift from QA to DevOps. They matched me with a Lead SRE who aced the systems engineering interview. I highly recommend their BG verification tips too. Worth every penny."
+  },
+  {
+    "id": "rev-4",
+    "name": "Shreya P.",
+    "role": "Business Analyst @ Deloitte",
+    "avatar": "SP",
+    "stars": 5,
+    "text": "Cleared my Business Analyst interview at Deloitte. The TechMan Assist team did an amazing job guiding me through SQL databases, Tableau, and business case scenarios. The preparation gave me massive confidence."
+  },
+  {
+    "id": "rev-5",
+    "name": "Vikram R.",
+    "role": "Project Manager @ Optum",
+    "avatar": "VR",
+    "stars": 5,
+    "text": "The Scrum Master and Healthcare PM certification prep was exactly what I needed. Outstanding, responsive support that helped me clear my credentials and secure a role at Optum."
+  }
+]

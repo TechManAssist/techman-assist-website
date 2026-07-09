@@ -175,6 +175,50 @@ const DEFAULT_SETUP_STEP_DATA = [
 ];
 let SETUP_STEP_DATA = null;
 
+const DEFAULT_REVIEWS_DATA = [
+  {
+    "id": "rev-1",
+    "name": "Rajesh K.",
+    "role": "Senior SDE @ Amazon",
+    "avatar": "RK",
+    "stars": 5,
+    "text": "TechMan Assist took all the anxiety out of the interview loop. The remote screen configuration was perfectly stealthy, and the expert coding in real-time was flawless. Passed Amazon SDE-2 loop effortlessly!"
+  },
+  {
+    "id": "rev-2",
+    "name": "Priya M.",
+    "role": "SDE-1 @ Microsoft",
+    "avatar": "PM",
+    "stars": 5,
+    "text": "As a fresher, finding a job was difficult. TechMan Assist helped me clear the Microsoft coding rounds. Their post-placement job support has been a lifesaver in my first few months on the team!"
+  },
+  {
+    "id": "rev-3",
+    "name": "Anil S.",
+    "role": "DevOps Engineer @ Google",
+    "avatar": "AS",
+    "stars": 5,
+    "text": "I wanted to shift from QA to DevOps. They matched me with a Lead SRE who aced the systems engineering interview. I highly recommend their BG verification tips too. Worth every penny."
+  },
+  {
+    "id": "rev-4",
+    "name": "Shreya P.",
+    "role": "Business Analyst @ Deloitte",
+    "avatar": "SP",
+    "stars": 5,
+    "text": "Cleared my Business Analyst interview at Deloitte. The TechMan Assist team did an amazing job guiding me through SQL databases, Tableau, and business case scenarios. The preparation gave me massive confidence."
+  },
+  {
+    "id": "rev-5",
+    "name": "Vikram R.",
+    "role": "Project Manager @ Optum",
+    "avatar": "VR",
+    "stars": 5,
+    "text": "The Scrum Master and Healthcare PM certification prep was exactly what I needed. Outstanding, responsive support that helped me clear my credentials and secure a role at Optum."
+  }
+];
+let REVIEWS_DATA = null;
+
 /* ==========================================================================
    DOM INITIALIZATION & INTERACTIVITY
    ========================================================================== */
@@ -1020,6 +1064,7 @@ async function initDatabaseEngine() {
     let expertsLoaded = false;
     let pricingLoaded = false;
     let setupLoaded = false;
+    let reviewsLoaded = false;
 
     // 0. Try to fetch from Supabase (Highest Priority for Database Storage)
     if (useSupabase) {
@@ -1090,6 +1135,19 @@ async function initDatabaseEngine() {
                 setupLoaded = true;
             }
 
+            const reviewsRows = await querySupabase("reviews");
+            if (reviewsRows) {
+                REVIEWS_DATA = reviewsRows.map(row => ({
+                    id: row.id,
+                    name: row.name,
+                    role: row.role,
+                    stars: parseInt(row.stars) || 5,
+                    text: row.text
+                }));
+                localStorage.setItem("techman_reviews_data", JSON.stringify(REVIEWS_DATA));
+                reviewsLoaded = true;
+            }
+
             try {
                 const skillsRows = await querySupabase("skills");
                 if (skillsRows) {
@@ -1112,7 +1170,7 @@ async function initDatabaseEngine() {
     }
 
     // 1. Try to fetch from GitHub if integrated and not loaded via Supabase
-    if (useGitHub && (!galleryLoaded || !expertsLoaded || !pricingLoaded || !setupLoaded)) {
+    if (useGitHub && (!galleryLoaded || !expertsLoaded || !pricingLoaded || !setupLoaded || !reviewsLoaded)) {
         try {
             if (!galleryLoaded) {
                 const githubGallery = await fetchFromGitHub("gallery.json");
@@ -1147,6 +1205,15 @@ async function initDatabaseEngine() {
                     SETUP_STEP_DATA = githubSetup.data;
                     localStorage.setItem("techman_setup_data", JSON.stringify(SETUP_STEP_DATA));
                     setupLoaded = true;
+                }
+            }
+
+            if (!reviewsLoaded) {
+                const githubReviews = await fetchFromGitHub("reviews.json");
+                if (githubReviews) {
+                    REVIEWS_DATA = githubReviews.data;
+                    localStorage.setItem("techman_reviews_data", JSON.stringify(REVIEWS_DATA));
+                    reviewsLoaded = true;
                 }
             }
         } catch (e) {
@@ -1227,6 +1294,23 @@ async function initDatabaseEngine() {
         }
     }
 
+    if (!reviewsLoaded) {
+        const localReviews = localStorage.getItem("techman_reviews_data");
+        if (localReviews) {
+            REVIEWS_DATA = JSON.parse(localReviews);
+        } else {
+            try {
+                const res = await fetch("reviews.json");
+                REVIEWS_DATA = await res.json();
+                localStorage.setItem("techman_reviews_data", JSON.stringify(REVIEWS_DATA));
+            } catch (e) {
+                console.error("Failed to fetch reviews.json:", e);
+                REVIEWS_DATA = DEFAULT_REVIEWS_DATA;
+                localStorage.setItem("techman_reviews_data", JSON.stringify(REVIEWS_DATA));
+            }
+        }
+    }
+
     if (!SKILLS_DATA) {
         const cachedSkills = localStorage.getItem("techman_skills_data");
         if (cachedSkills) {
@@ -1247,6 +1331,7 @@ async function initDatabaseEngine() {
     initGallerySection();
     renderPricingPlans();
     initSetupGuide();
+    renderReviews();
 }
 
 async function syncDatabasesWithGitHub() {
@@ -1278,14 +1363,22 @@ async function syncDatabasesWithGitHub() {
             localStorage.setItem("techman_setup_data", JSON.stringify(SETUP_STEP_DATA));
         }
 
+        const cloudReviews = await fetchFromGitHub("reviews.json");
+        if (cloudReviews) {
+            REVIEWS_DATA = cloudReviews.data;
+            localStorage.setItem("techman_reviews_data", JSON.stringify(REVIEWS_DATA));
+        }
+
         renderGallery(currentGalleryCategory);
         renderExperts(currentDomain);
         renderPricingPlans();
         initSetupGuide();
+        renderReviews();
         renderAdminDashboardList();
         renderAdminExpertsList();
         renderAdminPricingList();
         renderAdminSetupList();
+        renderAdminReviewsList();
     } catch (e) {
         console.error("Failed to sync databases with GitHub:", e);
     }
@@ -1782,6 +1875,74 @@ function initAdminForms() {
             initDatabaseEngine();
         });
     }
+
+    // 5.5. Add Success Story (Review) Form
+    const reviewForm = document.getElementById("admin-review-form");
+    if (reviewForm) {
+        reviewForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const name = document.getElementById("review-name").value.trim();
+            const role = document.getElementById("review-role").value.trim();
+            const stars = parseInt(document.getElementById("review-stars").value);
+            const text = document.getElementById("review-text").value.trim();
+
+            const submitBtn = reviewForm.querySelector("button[type='submit']");
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Saving story...";
+
+            const newReview = {
+                id: "rev-" + Date.now(),
+                name: name,
+                role: role,
+                avatar: getInitials(name),
+                stars: stars,
+                text: text
+            };
+
+            const originalList = JSON.parse(JSON.stringify(REVIEWS_DATA || []));
+            if (!REVIEWS_DATA) REVIEWS_DATA = [];
+            REVIEWS_DATA.push(newReview);
+
+            const settings = getGitHubSettings();
+            const useGitHub = settings.username && settings.repo && settings.token;
+
+            const sbSettings = getSupabaseSettings();
+            const useSupabase = sbSettings.url && sbSettings.key;
+
+            try {
+                if (useSupabase) {
+                    await querySupabase("reviews", "POST", {
+                        id: newReview.id,
+                        name: newReview.name,
+                        role: newReview.role,
+                        stars: newReview.stars,
+                        text: newReview.text
+                    });
+                    localStorage.setItem("techman_reviews_data", JSON.stringify(REVIEWS_DATA));
+                    alert("Success story saved to Supabase successfully!");
+                } else if (useGitHub) {
+                    await commitToGitHub("reviews.json", REVIEWS_DATA, `admin: add success story ${name}`);
+                    localStorage.setItem("techman_reviews_data", JSON.stringify(REVIEWS_DATA));
+                    alert("Success story saved to GitHub successfully!");
+                } else {
+                    localStorage.setItem("techman_reviews_data", JSON.stringify(REVIEWS_DATA));
+                    alert("Success story saved locally (preview mode)!");
+                }
+
+                renderReviews();
+                renderAdminReviewsList();
+                reviewForm.reset();
+            } catch (err) {
+                console.error(err);
+                REVIEWS_DATA = originalList; // rollback
+                alert(`Failed to save success story: ${err.message}`);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
+        });
+    }
 }
 
 window.openAdminLogin = function() {
@@ -1818,6 +1979,7 @@ function openAdminDashboard() {
         renderAdminSkillsList();
         renderAdminPricingList();
         renderAdminSetupList();
+        renderAdminReviewsList();
     }
 }
 
@@ -2436,6 +2598,99 @@ window.moveGalleryItem = async function(category, id, direction) {
 
     renderGallery(currentGalleryCategory);
     renderAdminDashboardList();
+};
+
+function renderReviews() {
+    const grid = document.getElementById("reviews-grid");
+    if (!grid || !REVIEWS_DATA) return;
+
+    grid.innerHTML = REVIEWS_DATA.map(rev => {
+        const starRating = "⭐".repeat(rev.stars);
+        const initials = rev.avatar || getInitials(rev.name);
+        return `
+            <div class="review-card">
+                <div class="stars">${starRating}</div>
+                <p class="review-text">"${rev.text}"</p>
+                <div class="reviewer-info">
+                    <div class="reviewer-avatar">${initials}</div>
+                    <div>
+                        <h4 class="reviewer-name">${rev.name}</h4>
+                        <span class="reviewer-title">${rev.role}</span>
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join("");
+}
+
+function getInitials(name) {
+    if (!name) return "";
+    const parts = name.trim().split(/\s+/);
+    if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
+    return (parts[0].charAt(0) + parts[parts.length - 1].charAt(0)).toUpperCase();
+}
+
+function renderAdminReviewsList() {
+    const listContainer = document.getElementById("admin-reviews-list");
+    if (!listContainer) return;
+
+    if (!REVIEWS_DATA || REVIEWS_DATA.length === 0) {
+        listContainer.innerHTML = `<div style="text-align: center; color: var(--text-dim); padding: 20px;">No success stories listed.</div>`;
+        return;
+    }
+
+    let itemsMarkup = "";
+    REVIEWS_DATA.forEach((rev, index) => {
+        const starsText = "⭐".repeat(rev.stars);
+        itemsMarkup += `
+            <div class="admin-item-row" data-id="${rev.id}">
+                <div class="admin-item-info">
+                    <div class="admin-item-text">
+                        <h5>${rev.name}</h5>
+                        <span>${rev.role} (${starsText})</span>
+                    </div>
+                </div>
+                <button class="btn-delete-item" onclick="deleteReviewItem('${rev.id}')">Delete</button>
+            </div>
+        `;
+    });
+
+    listContainer.innerHTML = itemsMarkup;
+}
+
+window.deleteReviewItem = async function(id) {
+    if (!confirm("Are you sure you want to delete this success story?")) return;
+
+    const originalList = JSON.parse(JSON.stringify(REVIEWS_DATA || []));
+    REVIEWS_DATA = REVIEWS_DATA.filter(rev => rev.id !== id);
+
+    const settings = getGitHubSettings();
+    const useGitHub = settings.username && settings.repo && settings.token;
+
+    const sbSettings = getSupabaseSettings();
+    const useSupabase = sbSettings.url && sbSettings.key;
+
+    try {
+        if (useSupabase) {
+            await querySupabase(`reviews?id=eq.${id}`, "DELETE");
+            localStorage.setItem("techman_reviews_data", JSON.stringify(REVIEWS_DATA));
+            alert("Success story deleted from Supabase successfully!");
+        } else if (useGitHub) {
+            await commitToGitHub("reviews.json", REVIEWS_DATA, `admin: delete success story ${id}`);
+            localStorage.setItem("techman_reviews_data", JSON.stringify(REVIEWS_DATA));
+            alert("Success story deleted from GitHub successfully!");
+        } else {
+            localStorage.setItem("techman_reviews_data", JSON.stringify(REVIEWS_DATA));
+            alert("Success story deleted locally (preview mode)!");
+        }
+
+        renderReviews();
+        renderAdminReviewsList();
+    } catch (err) {
+        console.error(err);
+        REVIEWS_DATA = originalList; // rollback
+        alert(`Failed to delete success story: ${err.message}`);
+    }
 };
 
 
